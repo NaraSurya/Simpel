@@ -8,6 +8,14 @@ class detail_pembayaran extends Model
 {
     
     public function pembayaran(){
-        return $this->hasMany('App\pembayaran');
+        return $this->belongsTo('App\pembayaran');
+    }
+
+    public function tu(){
+        return $this->hasOne('App\tu');
+    }
+
+    public function siswa(){
+        return $this->hasOne('App\siswa');
     }
 }

@@ -25,8 +25,6 @@ class CreateTusTable extends Migration
             $table->string('username',255);
             $table->string('password',255);
             $table->string('email',255);
-            $table->dateTime('create_at');
-            $table->dateTime('update_at');
             $table->enum('first',['0','1']);
             $table->timestamps();
         });

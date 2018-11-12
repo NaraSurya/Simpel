@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class periode extends Model
 {
     public function pembayaran(){
-        return $this->hasMany('App\pembayaran');
+        return $this->belongsTo('App\pembayaran');
     }
 }

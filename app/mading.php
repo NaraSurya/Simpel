@@ -13,4 +13,8 @@ class mading extends Model
     public function komen(){
         return $this->hasMany('App\komen');
     }
+
+    public function tu(){
+        return $this->hasOne('App\tu');
+    }
 }
