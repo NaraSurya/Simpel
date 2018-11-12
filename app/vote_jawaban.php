@@ -10,4 +10,14 @@ class vote_jawaban extends Model
     {
         return $this->belongsTo('App\jawaban');
     }
+
+    public function Guru()
+    {
+        return $this->belongsTo('App\Guru');
+    }
+
+    public function siswa()
+    {
+        return $this->belongsTo('App\siswa');
+    }
 }

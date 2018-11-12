@@ -20,4 +20,14 @@ class jawaban extends Model
     {
         return $this->hasMany('App\pict_jawaban');
     }
+
+    public function siswa()
+    {
+        return $this->belongsTo('App\siswa');
+    }
+
+    public function Guru()
+    {
+        return $this->belongsTo('App\Guru');
+    }
 }
