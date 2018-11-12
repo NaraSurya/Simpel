@@ -14,4 +14,19 @@ class siswa extends Model
    {
        return $this->belongsToMany('App\wali', 'detail_siswa', 'siswa_id', 'wali_id');
    }
+
+   public function berkas(){
+       return $this->hasMany('App\berkas');
+   }
+   public function kelas()
+   {
+       return $this->belongsToMany('App\kelas', 'detail_kelas');
+   }
+
+   public function nilai()
+   {
+       return $this->hasMany('App\Nilai');
+   }
+   
+
 }
