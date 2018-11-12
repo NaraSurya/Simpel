@@ -15,7 +15,7 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('nip');
+            $table->Integer('guru_id');
             $table->Integer('kelas_id');
             $table->time('jam_awal');
             $table->time('jam_akhir');

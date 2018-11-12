@@ -16,8 +16,8 @@ class CreateKomensTable extends Migration
         Schema::create('komens', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('mading_id');
-            $table->Integer('nip');
-            $table->Integer('nis');
+            $table->Integer('guru_id');
+            $table->Integer('siswa_id');
             $table->text('komen', 255);//perlu direvisi lagi
             $table->dateTime('tanggal');
             $table->timestamps();

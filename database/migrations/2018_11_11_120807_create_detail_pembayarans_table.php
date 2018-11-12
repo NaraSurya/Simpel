@@ -16,7 +16,7 @@ class CreateDetailPembayaransTable extends Migration
         Schema::create('detail_pembayarans', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('tu_id');
-            $table->Integer('nis');
+            $table->Integer('siswa_id');
             $table->dateTime('tanggal');
             $table->enum('status',['0','1']);
             $table->timestamps();
