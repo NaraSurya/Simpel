@@ -15,6 +15,6 @@ class mading extends Model
     }
 
     public function tu(){
-        return $this->hasOne('App\tu');
+        return $this->belongsTo('App\tu');
     }
 }

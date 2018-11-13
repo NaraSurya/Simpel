@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class tu extends Model
 {
     public function mading(){
-        return $this->belongsTo('App\mading');
+        return $this->hasMany('App\mading');
     }
 
-    public function detail_pembayaran(){
-        return $this->belongsTo('App\detail_pembayaran');
+    public function pembayaran()
+    {
+        return $this->belongsToMany('App\pembayaran', 'detail_pembayarans');
     }
+
 }
