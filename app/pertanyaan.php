@@ -16,4 +16,14 @@ class pertanyaan extends Model
         return $this->hasMany('App\jawaban');
     }
 
+    public function mapel()
+    {
+        return $this->belongsTo('App\Mapel');
+    }
+    
+    public function siswa()
+    {
+        return $this->belongsTo('App\siswa');
+    }
+    
 }
