@@ -26,7 +26,7 @@ class jawaban extends Model
         return $this->belongsTo('App\siswa');
     }
 
-    public function Guru()
+    public function guru()
     {
         return $this->belongsTo('App\Guru');
     }

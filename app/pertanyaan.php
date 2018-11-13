@@ -16,7 +16,7 @@ class pertanyaan extends Model
         return $this->hasMany('App\jawaban');
     }
 
-    public function Mapel()
+    public function mapel()
     {
         return $this->belongsTo('App\Mapel');
     }
