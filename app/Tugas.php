@@ -20,4 +20,11 @@ class Tugas extends Model
     {
         return $this->hasMany('App\Komen_Tugas');
     }
+
+    public function siswa()
+    {
+        return $this->belongsToMany('App\siswa','jawab__tugas')->withPivot('path','nilai');
+    }
+
+    
 }
