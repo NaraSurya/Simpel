@@ -33,4 +33,37 @@ class Guru extends Model
     {
         return $this->hasMany('App\Komen_Tugas');
     }
+
+    public function jadwal()
+    {
+        return $this->hasMany('App\jadwal');
+    }
+
+    public function kelas()
+    {
+        return $this->hasMany('App\kelas');
+    }
+
+    public function jawaban()
+    {
+        return $this->hasMany('App\jawaban');
+    }
+
+    public function vote_jawaban()
+    {
+        return $this->hasMany('App\vote_jawaban');
+    }
+
+    public function komen()
+    {
+        return $this->hasMany('App\komen');
+    }
+
+    public function nilai()
+    {
+        return $this->belongsToMany('App\Nilai','detail__nilais')->withPivot('nilai');
+    }
+
+
+
 }
