@@ -12,11 +12,11 @@ class komen extends Model
 
     public function siswa()
     {
-        return $this->hasOne('App\siswa');
+        return $this->belongsTo('App\siswa');
     }
 
     public function guru()
     {
-        return $this->hasOne('App\guru');
+        return $this->belongsTo('App\guru');
     }
 }

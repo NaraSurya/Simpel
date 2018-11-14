@@ -8,18 +8,19 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-
-    <style>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+   <style>
         body{
-            background-color: rgb(248, 248, 248);
+            background-color: #f5f6fa;
+            font-family: 'Varela Round', sans-serif;
         }
         nav{
             background-color: white;
             z-index: 999;
             
         }
+        
         
         .navbar-brand{
             color: rgb(190, 190, 190);
@@ -29,6 +30,15 @@
         }
         .search{
             border-style: none;
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            color: white !important;
+            
+        }
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: white !important;
+            opacity: 1; /* Firefox */
         }
         .sidebar{
             background-color: white !important;
@@ -38,6 +48,7 @@
             left: 0;
             z-index: 100; /* Behind the navbar */
             padding: 60px 0 0; /* Height of navbar */
+            width: 5% !important;
             
         }
         .sidebar-sticky {
@@ -79,65 +90,88 @@
         text-transform: uppercase;
         }
         .menu{
-            color: gray !important;
+            color: #cfd3dc!important;
         }
         .menu:hover{
             background-color: #198cff;
+            border-right-color: #333;
             color: white !important;
         }
         [role="main"] {
             padding-top: 48px; /* Space for fixed navbar */
         }
-        
-        .img {
-            vertical-align: middle;
-            border-style: none;
+        .search-bar{
+            -moz-border-radius:28px;
+            -webkit-border-radius:28px;
+            border-radius:28px;
+            
         }
-        .img-radius {
-            border-radius: 50%;
-            border: 2px solid #fff;
-            -webkit-box-shadow: 0 5px 10px 0 rgba(43,43,43,0.2);
-            box-shadow: 0 5px 10px 0 rgba(43,43,43,0.2);
+        .icon{
+            font-size: 1.25rem;
+        }
+        .active{
+            color: #007bff !important;
         }
 
-        
-
-        
-        
-        
     </style>
 </head>
 
   <body>
-        <nav class="navbar  flex-md-nowrap  p-2 ">
+        <nav class="navbar position-relative flex-md-nowrap  p-2 ">
             <a class="navbar-brand col-sm-3 col-md-1 mr-0" href="#">SIMPEL</a>
-            <input class=" search form-control form-control-light w-50 justify-content-center mx-2" type="text" placeholder="Search" aria-label="Search">
-            <ul class="navbar-nav"> 
-             <li> 
-                <div>
-                    <div class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="{{ asset('img/1.png') }}" class="img-radius" alt="User-Profile-Image" height="50px" weight="50px">
-                        <span>Kerte Yasa</span>
-                        <i class="feather icon-chevron-down"></i>
+            <div class="relative w-25 form-inline justify-content-center search-bar bg-primary">
+                <input class=" search form-control form-control-light form-control-sm w-75 justify-content-center mx-2 bg-primary" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn d-flex-inline btn-primary rounded-circle ml-auto"><i class="fas fa-search"></i></button>
+            </div>
+           
+            <ul class="navbar-nav ">
+                <li class="nav-item justify-content-end d-flex px-5 ">
+                    <a class="nav-link mx-3" href="#"><i class="far fa-bell fa-lg"></i></a>
+                    <button class="btn btn-primary d-flex shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div>
+                            <div class="d-inline-flex mr-3">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="d-inline-flex">
+                                Gus Agung
+                            </div>
+                        </div>
+                    </button>
+                    <div class="dropdown-menu position-absolute align-item-right"  aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
                     </div>
-                   
-                            <ul  style="left:90%; right:0; position:absolute" class="dropdown-menu " data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                    <li>
-                                        <a href="#!">
-                                        <i class="fas fa-cog"></i> Settings
-            
-                                    </a>
-                                    </li>
-                                    
-                                    <li>
-                                        <a href="auth-sign-in-social.html">
-                                                <i class="fas fa-sign-out-alt"></i> Logout
-            
-                                    </a>
-                                    </li>
-                                </ul>
-                           
-                        </li>
+                </li>
+            </ul>
+        </nav>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="col-md-1 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky d-flex align-items-center justify-content-center">
+                        
+                        <ul class="nav flex-column flex-fill   text-center">
+                            <li class="nav-item  ">
+                                <a class="nav-link active  mb-2 icon menu" href="#">
+                                    <i class="fas fa-home "></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link icon mb-2 menu" href="#">
+                                    <i class="fas fa-tasks"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link icon mb-2 menu" href="#">
+                                    <i class="fas fa-book-open"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link icon  mb-2 menu" href="#">
+                                    <i class="fas fa-file-alt"></i>
+                                </a>
+                            </li>
                         </ul>
             
             
