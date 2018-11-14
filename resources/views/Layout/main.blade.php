@@ -65,26 +65,21 @@
                 position: sticky;
             }
         }
-
         .sidebar .nav-link {
         font-weight: 500;
         color: #333;
         }
-
         .sidebar .nav-link .feather {
         margin-right: 4px;
         color: #999;
         }
-
         .sidebar .nav-link.active {
         color: #007bff;
         }
-
         .sidebar .nav-link:hover .feather,
         .sidebar .nav-link.active .feather {
         color: inherit;
         }
-
         .sidebar-heading {
         font-size: .75rem;
         text-transform: uppercase;
@@ -112,7 +107,6 @@
         .active{
             color: #007bff !important;
         }
-
     </style>
 </head>
 
@@ -137,7 +131,7 @@
                             </div>
                         </div>
                     </button>
-                    <div class="dropdown-menu position-absolute align-item-right"  aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu position-absolute" style="left:85%"  aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
@@ -173,40 +167,7 @@
                                 </a>
                             </li>
                         </ul>
-            
-            
-                    </nav>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <nav class="col-md-1 d-none d-md-block bg-light sidebar">
-                                <div class="sidebar-sticky">
-                                    
-                                    <ul class="nav flex-column my-5 text-center">
-                                        <li class="nav-item  ">
-                                            <a class="nav-link  mb-2 menu" href="#">
-                                                menu 1
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link  mb-2 menu" href="#">
-                                                menu 2
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link  mb-2 menu" href="#">
-                                                menu 3
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link  mb-2 menu" href="#">
-                                                menu 4
-                                            </a>
-                                        </li>
-                                    </ul>
                     </div>
-                   
-                    </div>
-
                 </nav>
                 <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-4">
                     @yield('content')
