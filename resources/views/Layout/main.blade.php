@@ -137,7 +137,7 @@
                             </div>
                         </div>
                     </button>
-                    <div class="dropdown-menu position-absolute align-item-right"  aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu position-absolute" style="left:85%"  aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
