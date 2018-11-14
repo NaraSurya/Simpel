@@ -10,4 +10,9 @@ class Mapel extends Model
     {
         return $this->hasMany('App\Guru');
     }
+
+    public function pertanyaan()
+    {
+        return $this->hasMany('App\pertanyaan');
+    }
 }
