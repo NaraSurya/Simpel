@@ -57,5 +57,6 @@ class siswa extends Model
        return $this->belongsToMany('App\mading', 'komens');
    }
    
+   
 
 }
