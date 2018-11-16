@@ -15,10 +15,6 @@ class kelas extends Model
    {
        return $this->hasMany('App\absensi');
    }
-   public function jadwal()
-   {
-       return $this->hasMany('App\jadwal');
-   }
    public function jurusan()
    {
        return $this->belongsTo('App\jurusan');
@@ -31,6 +27,9 @@ class kelas extends Model
    {
        return $this->belongsTo('App\Guru');
    }
-
+   public function jadwal()
+   {
+       return $this->belongsToMany('App\Guru', 'jadwals' , 'kelas_id', 'guru_id')->withPivot('jam_awal', 'jam_akhir' , 'hari');
+   }
 
 }
