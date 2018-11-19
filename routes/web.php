@@ -23,3 +23,5 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
+Route::resource('siswa', 'SiswaController');
+Route::resource('wali', 'WaliController');

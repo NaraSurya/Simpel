@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class siswa extends Model
 {
+
+   protected $fillable = ['nama' , 'nis' , 'alamat' , 'no_tlp' , 'jenis_kelamin' , 'tgl_lahir' , 'email' , 'agama_id' ];
+    
+
+
+
     public function agama(){
         return $this->belongsTo('App\agama');
     }

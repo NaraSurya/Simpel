@@ -172,6 +172,10 @@
 
 </head>
 <body>
+
+    @include('include.error');
+    
+
     <nav class="navbar  navbar-light" style="background-color: #FFFFFF;" >
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -198,7 +202,7 @@
     <div class="container">
         
             {{-- form siswa --}}
-        <form method="GET">
+            <form id="form_siswa" method="POST" action="siswa">
             @csrf
 
             <div class="card mt-5" style="border-color:#ACD3FB">
@@ -302,7 +306,6 @@
                
 
                 {{-- form wali --}}
-               
                 <div class="card mt-5" style="border-color:#AED6F1">
                     <div class="header-text text-center">  
                             <span class="number"> 2 </span> 
@@ -367,7 +370,9 @@
                                 <label for="agama_wl">Agama</label>
                                     <div class="input-container">
                                         <i class="fas fa-church icon"></i>
+
                                         <select id="agama_wl" name="agama_wl" class="custom-select" required>
+
                                         <option selected disabled>Pilih Agama</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -385,6 +390,7 @@
                         <span class="number"> 3 </span> 
                         <span style="font-size:18px;">Upload Berkas NIS</span> 
                 </div>
+
                         <input type="hidden" id="nis_hidden" value="">
                         <div class="input-container ml-4 mt-4 mb-4">
                                 <i class="far fa-folder-open icon"></i>
@@ -393,6 +399,7 @@
                                     <label class="custom-file-label" for="customFile2">Choose file</label>
                                 </div>
                         </div>     
+
             </div>
 
             {{-- form berkas KK --}}
@@ -401,6 +408,7 @@
                         <span class="number"> 4 </span> 
                         <span style="font-size:18px;">Upload Berkas KK</span> 
                 </div>
+
                         <input type="hidden" id="nis_hidden" value="">
                         <div class="input-container ml-4 mt-4 mb-4">
                                 <i class="far fa-folder-open icon"></i>
@@ -409,6 +417,7 @@
                                     <label class="custom-file-label" for="customFile3">Choose file</label>
                                 </div>
                         </div>   
+
             </div>
 
             {{-- form berkas pembayaran --}}
@@ -425,7 +434,6 @@
                                     <label class="custom-file-label" for="customFile4">Choose file</label>
                                 </div>
                         </div>       
-                        
             </div>
 
             {{-- submit all form --}}
