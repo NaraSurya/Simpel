@@ -42,31 +42,31 @@ class WaliController extends Controller
             'no_tlp' => 'required' , 
             'jenis_kelamin' => 'required' , 
             'tgl_lahir' =>'required' , 
-            'email' => 'required|email'
+            'email' => 'required|email',
             'agama_id' => 'required|numeric'
-            'pict' => 'required|image|'
+          //  'pict' => 'required|image|'
        ]);
-       if($request->hasFile('pict')){
-                $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
-                $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
-                $fileExtension = $request->file('pict')->getClientOriginalExtension();
-                $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-                $filePath = $request->file('pict')->storeAs('public/profile_wali' , $fileNameToStorage); 
-        } 
-        else {
-            $fileName = 'PATH KE PROFILE UMUM';
-        }
+    //    if($request->hasFile('pict')){
+    //             $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
+    //             $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+    //             $fileExtension = $request->file('pict')->getClientOriginalExtension();
+    //             $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
+    //             $filePath = $request->file('pict')->storeAs('public/profile_wali' , $fileNameToStorage); 
+    //     } 
+    //     else {
+    //         $fileName = 'PATH KE PROFILE UMUM';
+    //     }
        $wali = wali::firstOrCreate([
            'nama' => $request->nama , 
            'alamat' => $request->alamat , 
            'no_tlp' => $request->no_tlp , 
-           'jenis_kelamin' => $request->jenis_kelamin , 
+           'jenis_kelamin' => 'L' , 
            'tgl_lahir' => $request->tgl_lahir , 
            'email' => $request->email , 
-           'agama_id' => $request->agama_id , 
-           'pict' => $filePath
+           'agama_id' => $request->agama_id, 
+            'pict' => 'foto'
        ]);
-       $siswa = siswa::where('nis',$request->nis); 
+       $siswa = siswa::where('nis',$request->nis)->first();
        $wali->siswa()->attach($siswa->id);
         
     }

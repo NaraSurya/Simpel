@@ -1,5 +1,6 @@
     
 submitForms = function (){
+    document.getElementById('nis_hidden').value = getNis();
     document.getElementById("form_siswa").submit();
     document.getElementById("form_wali").submit();
 }
@@ -7,8 +8,7 @@ submitForms = function (){
 
 
 getNis = function (){
-   var nis =  document.getElementById("nis").value();
+   var nis =  document.getElementById("nis").value;
    return nis;
 }
 
-document.getElementById('nis_hidden').value = getNis();

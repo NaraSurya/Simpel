@@ -173,7 +173,7 @@
 
 </head>
 <body>
-
+    @include('include.error');
     
     <nav class="navbar  navbar-light" style="background-color: #FFFFFF;" >
         <div class="container">
@@ -201,7 +201,8 @@
     <div class="container">
 
             {{-- form siswa --}}
-            <form id="form_siswa" method="GET">
+            <form id="form_siswa" method="POST" action="siswa">
+            @csrf
             <div class="card mt-5" style="border-color:#ACD3FB">
                
                 <div class="header-text text-center">  
@@ -291,7 +292,9 @@
                 </form>
 
                 {{-- form wali --}}
-                <form id="form_wali" method="">
+                <form id="form_wali" method="POST" action="wali">
+                @csrf
+                <input type="hidden" id="nis_hidden" name="nis" value="">
                 <div class="card mt-5" style="border-color:#AED6F1">
                     <div class="header-text text-center">  
                             <span class="number"> 2 </span> 
@@ -356,7 +359,7 @@
                                 <label for="agama_wl">Agama</label>
                                     <div class="input-container">
                                         <i class="fas fa-church icon"></i>
-                                        <select id="agama_wl" name="agama" class="custom-select" required>
+                                        <select id="agama_wl" name="agama_id" class="custom-select" required>
                                         <option selected disabled>Pilih Agama</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -376,7 +379,7 @@
                         <span style="font-size:18px;">Upload Berkas NIS</span> 
                 </div>
                     <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas1"> 
-                        <input type="hidden" id="nis_hidden" value="">
+                        <input type="hidden" id="nis_hiddens" value="">
                         <input type="file" name="file">
                     </form>
             </div>
@@ -388,7 +391,7 @@
                         <span style="font-size:18px;">Upload Berkas KK</span> 
                 </div>
                     <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas2">
-                        <input type="hidden" id="nis_hidden" value="">
+                        <input type="hidden" id="nis_hiddens" value="">
                         <input type="file" name="file">
                     </form>
             </div>
@@ -400,7 +403,7 @@
                         <span style="font-size:18px;">Upload Berkas Bukti Pembayaran</span> 
                 </div>
                     <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas3">
-                        <input type="hidden" id="nis_hidden" value="">
+                        <input type="hidden" id="nis_hiddens" value="">
                         <input type="file" name="file">
                     </form>
             </div>
