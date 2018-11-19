@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="{{ asset('/css/dropzone.css') }}" rel="stylesheet">
-  
+
+{{-- heloo   --}}
     <title>Registrasi</title>
 
     <style>
@@ -163,7 +163,6 @@
             transition: all 0.5s ease 0.12s;
         }
 
-
         option { 
             color:#9E9E9E; 
             background-color:white; 
@@ -173,8 +172,10 @@
 
 </head>
 <body>
+
     @include('include.error');
     
+
     <nav class="navbar  navbar-light" style="background-color: #FFFFFF;" >
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -199,10 +200,11 @@
         <hr style="border-top: 1px solid #D2E9FF ; margin:auto">
 
     <div class="container">
-
+        
             {{-- form siswa --}}
             <form id="form_siswa" method="POST" action="siswa">
             @csrf
+
             <div class="card mt-5" style="border-color:#ACD3FB">
                
                 <div class="header-text text-center">  
@@ -286,15 +288,24 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>     
+                            </div> 
+
+                            <div class="form-group col ">
+                                    <label for="nama_sw">Foto Profile</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-camera icon"></i>
+                                        <div class="custom-file w-50" >
+                                            <input type="file" class="custom-file-input" id="customFile3"  name="berkas_pembayaran">
+                                            <label class="custom-file-label" for="customFile3">Choose file</label>
+                                        </div>
+                                    </div>    
+                            </div>
+                               
                          </div>  
                     </div>
-                </form>
+               
 
                 {{-- form wali --}}
-                <form id="form_wali" method="POST" action="wali">
-                @csrf
-                <input type="hidden" id="nis_hidden" name="nis" value="">
                 <div class="card mt-5" style="border-color:#AED6F1">
                     <div class="header-text text-center">  
                             <span class="number"> 2 </span> 
@@ -305,14 +316,14 @@
                                 <label for="nama_wl">Nama</label>
                                 <div class="input-container">
                                     <i class="fa fa-user icon"></i>
-                                    <input type="text" class="form-control" name="nama" id="nama_wl" placeholder="Harap diisi">
+                                    <input type="text" class="form-control" name="nama_wl" id="nama_wl" placeholder="Harap diisi">
                                 </div> 
                         </div>
                         <div class="form-group col">
                             <label for="alamat_wl">Alamat</label>
                             <div class="input-container">
                                 <i class="fa fa-home icon"></i>
-                                <input type="text" class="form-control" name="alamat" id="alamat_wl" placeholder="Harap diisi">
+                                <input type="text" class="form-control" name="alamat_wl" id="alamat_wl" placeholder="Harap diisi">
                             </div>
                         </div>
                         <div class="form-row ml-2 ">
@@ -320,14 +331,14 @@
                                     <label for="tgl_wl">Tanggal lahir</label>
                                     <div class="input-container">
                                         <i class="far fa-calendar-alt icon"></i>
-                                        <input type="date" class="form-control" name="tgl_lahir" id="tgl_wl" placeholder="Harap diisi">
+                                        <input type="date" class="form-control" name="tgl_lahir_wl" id="tgl_wl" placeholder="Harap diisi">
                                     </div>
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="telepon_wl">Telepon</label>
                                 <div class="input-container">
                                     <i class="fas fa-mobile icon"></i>
-                                    <input type="text" class="form-control" name="no_tlp" id="telepon_wl" placeholder="Harap diisi">
+                                    <input type="text" class="form-control" name="no_tlp_wl" id="telepon_wl" placeholder="Harap diisi">
                                 </div>  
                             </div>
                         </div>
@@ -338,11 +349,11 @@
                                         <i class="	fa fa-venus-mars icon" ></i>
                                 </div>
                                 <div class="col-sm-2 pt-2" >  
-                                    <input type="radio"  name="jenis_kelamin" value="Laki-Laki" id="laki2" required>
+                                    <input type="radio"  name="jenis_kelamin_wl" value="Laki-Laki" id="laki2" required>
                                     <label for="laki2">Laki-Laki</label>
                                 </div>
                                 <div class="col-sm-2 pt-2" >  
-                                    <input type="radio"  name="jenis_kelamin" value="Perempuan" id="perempuan2"  required>
+                                    <input type="radio"  name="jenis_kelamin_wl" value="Perempuan" id="perempuan2"  required>
                                     <label  for="perempuan2">Perempuan</label>
                                 </div>
                             </div>    
@@ -352,14 +363,16 @@
                                 <label for="email_wl">Email</label>
                                     <div class="input-container">
                                         <i class="far fa-envelope icon"></i>
-                                        <input type="email" class="form-control" name="email"  id="email_wl" placeholder="Harap diisi">
+                                        <input type="email" class="form-control" name="email_wl"  id="email_wl" placeholder="Harap diisi">
                                     </div>   
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="agama_wl">Agama</label>
                                     <div class="input-container">
                                         <i class="fas fa-church icon"></i>
-                                        <select id="agama_wl" name="agama_id" class="custom-select" required>
+
+                                        <select id="agama_wl" name="agama_wl" class="custom-select" required>
+
                                         <option selected disabled>Pilih Agama</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -370,7 +383,6 @@
                         </div>
                      </div>  
                 </div>
-            </form>
 
             {{-- form berkas nis --}}
             <div class="card mt-5" style="border-color:#AED6F1; padding:5px 5px; ">
@@ -378,10 +390,16 @@
                         <span class="number"> 3 </span> 
                         <span style="font-size:18px;">Upload Berkas NIS</span> 
                 </div>
-                    <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas1"> 
-                        <input type="hidden" id="nis_hiddens" value="">
-                        <input type="file" name="file">
-                    </form>
+
+                        <input type="hidden" id="nis_hidden" value="">
+                        <div class="input-container ml-4 mt-4 mb-4">
+                                <i class="far fa-folder-open icon"></i>
+                                <div class="custom-file w-50" >
+                                    <input type="file" class="custom-file-input" id="customFile2"  name="berkas_nis">
+                                    <label class="custom-file-label" for="customFile2">Choose file</label>
+                                </div>
+                        </div>     
+
             </div>
 
             {{-- form berkas KK --}}
@@ -390,10 +408,16 @@
                         <span class="number"> 4 </span> 
                         <span style="font-size:18px;">Upload Berkas KK</span> 
                 </div>
-                    <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas2">
-                        <input type="hidden" id="nis_hiddens" value="">
-                        <input type="file" name="file">
-                    </form>
+
+                        <input type="hidden" id="nis_hidden" value="">
+                        <div class="input-container ml-4 mt-4 mb-4">
+                                <i class="far fa-folder-open icon"></i>
+                                <div class="custom-file w-50" >
+                                    <input type="file" class="custom-file-input" id="customFile3"  name="berkas_kk">
+                                    <label class="custom-file-label" for="customFile3">Choose file</label>
+                                </div>
+                        </div>   
+
             </div>
 
             {{-- form berkas pembayaran --}}
@@ -402,22 +426,26 @@
                         <span class="number"> 5 </span> 
                         <span style="font-size:18px;">Upload Berkas Bukti Pembayaran</span> 
                 </div>
-                    <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas3">
-                        <input type="hidden" id="nis_hiddens" value="">
-                        <input type="file" name="file">
-                    </form>
+                        <input type="hidden" id="nis_hidden" value="">
+                        <div class="input-container ml-4 mt-4 mb-4">
+                                <i class="far fa-folder-open icon"></i>
+                                <div class="custom-file w-50" >
+                                    <input type="file" class="custom-file-input" id="customFile4"  name="berkas_pembayaran">
+                                    <label class="custom-file-label" for="customFile4">Choose file</label>
+                                </div>
+                        </div>       
             </div>
 
             {{-- submit all form --}}
             <div class="btn-sub-edit">
-                    <button  type="submit" class="btn btn-primary" onclick="submitForms()" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
+                    <button  type="submit" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
             </div>
-                  
-        </div>  
+        </form>
+    </div>  
          
     <!-- Optional JavaScript -->
     <script src="{{ asset('/js/dropzone.js') }}"></script>
-    <script src="{{ asset('/js/submit_registrasi_siswa.js')}}"></script>
+    <script src="{{ asset('/js/submit_registrasi_siswa.js') }}"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
