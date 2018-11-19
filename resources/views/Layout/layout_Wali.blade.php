@@ -65,26 +65,21 @@
                 position: sticky;
             }
         }
-
         .sidebar .nav-link {
         font-weight: 500;
         color: #333;
         }
-
         .sidebar .nav-link .feather {
         margin-right: 4px;
         color: #999;
         }
-
         .sidebar .nav-link.active {
         color: #007bff;
         }
-
         .sidebar .nav-link:hover .feather,
         .sidebar .nav-link.active .feather {
         color: inherit;
         }
-
         .sidebar-heading {
         font-size: .75rem;
         text-transform: uppercase;
@@ -113,65 +108,51 @@
             color: #007bff !important;
         }
 
+
+
     </style>
 </head>
 
   <body>
         <nav class="navbar position-relative flex-md-nowrap  p-2 ">
-            <a class="navbar-brand col-sm-3 col-md-1 mr-0" href="#">SIMPEL</a>
+            <img src="{{asset('img/logo.svg')}}" class="mx-3" alt="logo_simple"  width="35px" height="35px">
             <div class="relative w-25 form-inline justify-content-center search-bar bg-primary">
                 <input class=" search form-control form-control-light form-control-sm w-75 justify-content-center mx-2 bg-primary" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn d-flex-inline btn-primary rounded-circle ml-auto"><i class="fas fa-search"></i></button>
             </div>
-           
-            <ul class="navbar-nav ">
+            <ul class="navbar-nav d-flex">
+
                 <li class="nav-item justify-content-end d-flex px-5 ">
                     <a class="nav-link mx-3" href="#"><i class="far fa-bell fa-lg"></i></a>
                     <button class="btn btn-primary d-flex shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div>
+                        
                             <div class="d-inline-flex mr-3">
-                                <i class="fas fa-user"></i>
+                        
+                        <img src="{{asset('img/1.png') }}"  alt="User-Profile-Image" height="25vh" weight="25vw" class="rounded-circle">
+
                             </div>
-                            <div class="d-inline-flex">
+                            <div class="d-inline-flex align-items-center ">
                                 Gus Agung
                             </div>
                         </div>
                     </button>
-                    <div class="dropdown-menu position-absolute" style="left:85%"  aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu position-absolute fa-ul" style="left:85%"  aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Action</a>
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#"><span class="fa-li" ><i class="fas fa-check-square"></i></span> Logout </a>   
                     </div>
                 </li>
             </ul>
         </nav>
+       
         <div class="container-fluid">
             <div class="row">
                 <nav class="col-md-1 d-none d-md-block bg-light sidebar">
                     <div class="sidebar-sticky d-flex align-items-center justify-content-center">
                         
                         <ul class="nav flex-column flex-fill   text-center">
-                            <li class="nav-item  ">
-                                <a class="nav-link active  mb-2 icon menu" href="#">
-                                    <i class="fas fa-home "></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link icon mb-2 menu" href="#">
-                                    <i class="fas fa-tasks"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link icon mb-2 menu" href="#">
-                                    <i class="fas fa-book-open"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link icon  mb-2 menu" href="#">
-                                    <i class="fas fa-file-alt"></i>
-                                </a>
-                            </li>
+                            @include('include.nav-Wali')
                         </ul>
                     </div>
                 </nav>

@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
+
+Route::get('/regis',function(){
+    return view('registrasi');
+});
+
+Route::resource('siswa', 'SiswaController');
+Route::resource('wali', 'WaliController');
