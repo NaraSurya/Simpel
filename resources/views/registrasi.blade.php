@@ -173,7 +173,7 @@
 </head>
 <body>
 
-    @include('include.error');
+ 
     
 
     <nav class="navbar  navbar-light" style="background-color: #FFFFFF;" >
@@ -197,12 +197,13 @@
             </ul>
         </div>    
     </nav>
+    @include('include.error');
         <hr style="border-top: 1px solid #D2E9FF ; margin:auto">
 
     <div class="container">
         
             {{-- form siswa --}}
-            <form id="form_siswa" method="POST" action="siswa">
+            <form id="form_siswa" method="POST" action="regis" enctype="multipart/form-data">
             @csrf
 
             <div class="card mt-5" style="border-color:#ACD3FB">
@@ -258,11 +259,11 @@
                                                 <i class="	fa fa-venus-mars icon" ></i>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="Laki-Laki" required>
+                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="L" required>
                                             <label  for="laki1">Laki-Laki</label>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="Perempuan" required>
+                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="P" required>
                                             <label  for="perempuan2">Perempuan</label>
                                         </div>
                                     </div>    
@@ -295,7 +296,7 @@
                                     <div class="input-container">
                                         <i class="fas fa-camera icon"></i>
                                         <div class="custom-file w-50" >
-                                            <input type="file" class="custom-file-input" id="customFile3"  name="berkas_pembayaran">
+                                            <input type="file" class="custom-file-input" id="customFile3"  name="pict">
                                             <label class="custom-file-label" for="customFile3">Choose file</label>
                                         </div>
                                     </div>    
@@ -349,11 +350,11 @@
                                         <i class="	fa fa-venus-mars icon" ></i>
                                 </div>
                                 <div class="col-sm-2 pt-2" >  
-                                    <input type="radio"  name="jenis_kelamin_wl" value="Laki-Laki" id="laki2" required>
+                                    <input type="radio"  name="jenis_kelamin_wl" value="L" id="laki2" required>
                                     <label for="laki2">Laki-Laki</label>
                                 </div>
                                 <div class="col-sm-2 pt-2" >  
-                                    <input type="radio"  name="jenis_kelamin_wl" value="Perempuan" id="perempuan2"  required>
+                                    <input type="radio"  name="jenis_kelamin_wl" value="P" id="perempuan2"  required>
                                     <label  for="perempuan2">Perempuan</label>
                                 </div>
                             </div>    
