@@ -115,7 +115,7 @@
 
   <body>
         <nav class="navbar position-relative flex-md-nowrap  p-2 ">
-            <a class="navbar-brand col-sm-3 col-md-1 mr-0" href="#">SIMPEL</a>
+            <img src="{{asset('img/logo.svg')}}" class="mx-3" alt="logo_simple"  width="35px" height="35px">
             <div class="relative w-25 form-inline justify-content-center search-bar bg-primary">
                 <input class=" search form-control form-control-light form-control-sm w-75 justify-content-center mx-2 bg-primary" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn d-flex-inline btn-primary rounded-circle ml-auto"><i class="fas fa-search"></i></button>
@@ -141,13 +141,6 @@
                         <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#"><span class="fa-li" ><i class="fas fa-check-square"></i></span> Logout </a>   
-                        
-                        {{-- <span style="display:inline">
-                                        <span>
-                                        <i class="fas fa-sign-out-alt"> </i> <a class="dropdown-item" href="#"> Logout </a>
-                                        </span> 
-                                </span> --}}
-           
                     </div>
                 </li>
             </ul>
@@ -159,26 +152,7 @@
                     <div class="sidebar-sticky d-flex align-items-center justify-content-center">
                         
                         <ul class="nav flex-column flex-fill   text-center">
-                            <li class="nav-item">
-                                <a class="nav-link active  mb-2 icon menu" href="#">
-                                    <i class="fas fa-home "></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link icon mb-2 menu" href="#">
-                                    <i class="fas fa-tasks"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link icon mb-2 menu" href="#">
-                                    <i class="fas fa-book-open"></i>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link icon  mb-2 menu" href="#">
-                                    <i class="fas fa-file-alt"></i>
-                                </a>
-                            </li> 
+                            @include('include.nav-Wali')
                         </ul>
                     </div>
                 </nav>
