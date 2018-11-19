@@ -1,9 +1,6 @@
-@extends('layout.main')
+@extends('layout.layout_TU')
 @section('title','test')
 
 @section('content')
-    <div class="container">
-        <h1>heloo</h1>
-        
-    </div>
+    <h1>heloo</h1>
 @endsection

@@ -21,6 +21,7 @@ class CreateDetailPembayaransTable extends Migration
             $table->enum('status',['0','1']);
             $table->timestamps();
         });
+
     }
 
     /**

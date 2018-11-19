@@ -16,4 +16,9 @@ class Nilai extends Model
     {
         return $this->belongsTo('App\Siswa');
     }
+
+    public function guru()
+    {
+        return $this->belongsToMany('App\Guru','detail__nilais');
+    }
 }
