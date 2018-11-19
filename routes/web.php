@@ -22,3 +22,4 @@ Route::get('/test', function () {
 Route::get('/regis',function(){
     return view('registrasi');
 });
+

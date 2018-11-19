@@ -26,6 +26,7 @@ class CreateSiswasTable extends Migration
             $table->string('password',255);
             $table->string('email')->unique();
             $table->integer('agama_id');
+            $table->enum ('verifikasi',['1','0']);
             $table->enum('first' , ['1','0']);
             $table->timestamps(); 
         });
