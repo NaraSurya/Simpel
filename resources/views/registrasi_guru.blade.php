@@ -1,34 +1,40 @@
-@extends('layout.layout_Guru')
+@extends('layout.layout_TU')
 @section('content')
-@include('include.error');
-
-        <hr style="border-top: 1px solid #D2E9FF ; margin:auto">
-
+@include('include.error')
     <div class="container">
-        
+        <div class="form-row ">
+            <div class="form-group col">
+            <a href="list guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
+            </div>
+            <div class="form-group col  text-center">
+                <h2>Form Registrasi Guru</h2>
+            </div>
+            <div class="form-group col text-right">
+            <a href="home/dashboard" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Home</a>    
+            </div>
+        </div>
             {{-- form guru --}}
-            <form id="form_guru" method="POST" action="regis_guru" enctype="multipart/form-data">
+            <form id="form_guru" method="POST" action="regisguru" enctype="multipart/form-data">
             @csrf
 
             <div class="card mt-5" style="border-color:#ACD3FB">
                
                 <div class="header-text text-center">  
-                    <span class="number"> 1 </span> 
-                    <span style="font-size:18px;">Form Data Guru</span> 
+                        
                 </div>
 
                     <div class="card-body">
                         <div class="form-group col ">
                             <label for="nama_gr">Nama</label>
                             <div class="input-container">
-                                <i class="fa fa-user icon"></i>
+                                <i class="fa fa-user icon-form"></i>
                                 <input type="text" class="form-control" name="nama" id="nama_gr" placeholder="Harap diisi">
                             </div>    
                         </div>
                         <div class="form-group col">
                             <label for="alamat_gr">Alamat</label>
                             <div class="input-container">
-                                <i class="fa fa-home icon"></i>
+                                <i class="fa fa-home icon-form"></i>
                                 <input type="text" class="form-control" name="alamat" id="alamat_gr" placeholder="Harap diisi">
                             </div>
                         </div>
@@ -36,14 +42,14 @@
                             <div class="form-group col mr-4">
                                 <label for="nis">NIP</label>
                                 <div class="input-container">
-                                    <i class="far fa-id-card icon"></i>
+                                    <i class="far fa-id-card icon-form"></i>
                                     <input type="text" class="form-control" name="nis" id="nip" placeholder="Harap diisi">
                                 </div>      
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="telepon_gr">Telepon</label>
                                 <div class="input-container">
-                                    <i class="fas fa-mobile icon"></i>
+                                    <i class="fas fa-mobile icon-form"></i>
                                     <input type="text" class="form-control" name="no_tlp" id="telepon_gr" placeholder="Harap diisi">
                                 </div>  
                             </div>
@@ -52,7 +58,7 @@
                             <div class="form-group col mr-4">
                                     <label for="tgl_gr">Tanggal lahir</label>
                                     <div class="input-container">
-                                        <i class="far fa-calendar-alt icon"></i>
+                                        <i class="far fa-calendar-alt icon-form"></i>
                                         <input type="date" class="form-control" name="tgl_lahir" id="tgl_gr" placeholder="Harap diisi">
                                     </div>
                             </div>
@@ -60,7 +66,7 @@
                                     <label >Jenis Kelamin</label>
                                     <div class="row">
                                         <div class="col-md-2" >
-                                                <i class="	fa fa-venus-mars icon" ></i>
+                                                <i class="	fa fa-venus-mars icon-form" ></i>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
                                             <input type="radio"  id="laki1" name="jenis_kelamin" value="L" required>
@@ -77,54 +83,59 @@
                                 <div class="form-group col mr-4">
                                     <label for="email_gr">Email</label>
                                         <div class="input-container">
-                                            <i class="far fa-envelope icon"></i>
+                                            <i class="far fa-envelope icon-form"></i>
                                             <input type="email" class="form-control" name="email" id="email_gr" placeholder="Harap diisi">
                                         </div>   
                                 </div>
                                 <div class="form-group col mr-3">
                                     <label for="agama_gr">Agama</label>
                                     <div class="input-container">
-                                        <i class="fas fa-church icon"></i>
+                                        <i class="fas fa-church icon-form"></i>
                                         <select id="agama_gr" name="agama_id" class="custom-select">
                                         <option selected disabled>Pilih Agama</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        @foreach ($pilihanagama as $pilihan)
+                                        <option value="{{$pilihan->id}}">{{$pilihan->agama}}</option>
+                                        @endforeach
                                         </select>
                                     </div>
                                 </div>
-                               </div>
-                               <div class="form-group col mr-3">
-                                    <label for="mapel_gr">Mata Pelajaran</label>
-                                    <div class="input-container">
-                                        <i class="fas fa-chalkboard-teacher"></i>
-                                        <select id="mapel_gr" name="mapel_id" class="custom-select">
-                                        <option selected disabled>Pilih Mata Pelajaran</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        </select>
-                                    </div>
-                                </div>
-                               
-                            <div class="form-group col ">
-                                    <label for="nama_gr">Foto Profile</label>
-                                    <div class="input-container">
-                                        <i class="fas fa-camera icon"></i>
-                                        <div class="custom-file w-50" >
-                                            <input type="file" class="custom-file-input" id="customFile3"  name="pict">
-                                            <label class="custom-file-label" for="customFile3">Choose file</label>
-                                        </div>
-                                    </div>    
                             </div>
+                               <div class="form-row ml-2">
+                                    <div class="form-group col mr-4">
+                                        <label for="mapel_gr">Mata Pelajaran</label>
+                                        <div class="input-container">
+                                            <i class="fas fa-book-open icon-form"></i>
+                                            <select id="mapel_gr" name="mapel_id" class="custom-select">
+                                            <option selected disabled>Pilih Mata Pelajaran</option>
+                                            @foreach ($pilihanmapel as $pilihan)
+                                            <option value="{{$pilihan->id}}">{{$pilihan->mapel}}</option>
+                                            @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col mr-3">
+                                        <label for="nama_gr">Foto Profile</label>
+                                        <div class="input-container">
+                                            <i class="fas fa-camera icon-form"></i>
+                                            <div class="custom-file w-100" >
+                                                <input type="file" class="custom-file-input" id="customFile3"  name="pict">
+                                                <label class="custom-file-label" for="customFile3">Choose file</label>
+                                            </div>
+                                        </div>    
+                                    </div>
+                               </div>
+                              
+                               
+                        
+                            
                                
                          </div>  
-                    </div>
-
-            {{-- submit all form --}}
-            <div class="btn-sub-edit">
+                         <div class="btn-sub-edit my-5 text-center">
                     <button  type="submit" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
             </div>
+                    </div>
+            
+            
         </form>
     </div>  
          

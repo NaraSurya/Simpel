@@ -23,15 +23,14 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
-Route::get('/registrasi_guru',function(){
-    return view('registrasi_guru');
-});
+Route::get('/registrasi_guru', 'GuruController@create');
 
 Route::post('/regis', 'RegistrasiController@siswa');
 
-Route::post('/regisguru', 'GuruController@store');
-
 Route::prefix('/tu')->group(function(){
     Route::get('/validate-siswa-baru', 'RegistrasiController@view');
+    Route::get('/list_guru', 'GuruController@list');
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
+    Route::get('/biodata_guru/{id}','GuruController@show');
+    Route::post('/regisguru', 'GuruController@store');
 });
