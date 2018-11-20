@@ -23,7 +23,13 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
+Route::get('/registrasi_guru',function(){
+    return view('registrasi_guru');
+});
+
 Route::post('/regis', 'RegistrasiController@siswa');
+
+Route::post('/regisguru', 'GuruController@store');
 
 Route::prefix('/tu')->group(function(){
     Route::get('/validate-siswa-baru', 'RegistrasiController@view');
