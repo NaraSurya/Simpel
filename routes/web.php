@@ -23,6 +23,7 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
+<<<<<<< HEAD
 Route::get('/regis_tu',function(){
     return view('registrasi_tu');
 });
@@ -34,3 +35,11 @@ Route::get('/regis_tu2',function(){
 Route::resource('tu','TuController');
 Route::resource('siswa', 'SiswaController');
 Route::resource('wali', 'WaliController');
+=======
+Route::post('/regis', 'RegistrasiController@siswa');
+
+Route::prefix('/tu')->group(function(){
+    Route::get('/validate-siswa-baru', 'RegistrasiController@view');
+    Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
+});
+>>>>>>> 966aa6fc11fc55e005840ceadb576444b0d60fbc
