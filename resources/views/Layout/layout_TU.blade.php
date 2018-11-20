@@ -9,7 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Varela+Round" rel="stylesheet">
    <style>
         body{
             background-color: #f5f6fa;
@@ -115,6 +115,26 @@
             outline: 0;
             -webkit-box-shadow: none;
             box-shadow: none;
+        }
+
+        /**
+        * Style untuk verifikasi siswa
+        */
+        .font-color-grey{
+            color: #8b93a6!important; 
+        }
+        .font-raleway{
+            font-family: 'Raleway', sans-serif;
+        }
+        .number {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            height: 25px;
+            width: 25px;
+            background-color: white;
+            border: 1.5px solid black;
+            border-radius: 50%;
+            display: inline-block;
         }
 
     </style>
