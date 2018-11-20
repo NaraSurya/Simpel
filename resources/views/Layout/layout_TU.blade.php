@@ -139,7 +139,7 @@
 
                             </div>
                             <div class="d-inline-flex align-items-center ">
-                                Gus Agung
+                                Gus Agung Lengeh
                             </div>
                         </div>
                     </button>

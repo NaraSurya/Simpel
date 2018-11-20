@@ -14,7 +14,8 @@ class TuController extends Controller
      */
     public function index()
     {
-        //
+        $tu = Tu::get();
+        return view('Tu.show_tu',compact('tu'));
     }
 
     /**
@@ -24,7 +25,8 @@ class TuController extends Controller
      */
     public function create()
     {
-        //
+        $tu = Tu::get();
+        return view('Tu.registrasi_tu',compact('tu'));
     }
 
     /**
@@ -35,7 +37,21 @@ class TuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tu= new Tu;
+        $tu->agama_id = $request->agama_id;
+        $tu->nama = $request->nama;
+        $tu->tgl_lahir = $request->tgl_lahir;
+        $tu->jenis_kelamin = $request->jenis_kelamin;
+        $tu->alamat = $request->alamat;
+        $tu->no_hp= $request->no_hp;
+        $tu->pict = $request->pict;
+        $tu->username = $request->username;
+        $tu->password = $request->password;
+        $tu->email = $request->email;
+        $tu->first = 1;
+        $tu->save();
+        $tu= Tu::get();
+        return view('Tu.show_tu',compact('tu'));
     }
 
     /**

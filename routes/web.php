@@ -23,5 +23,14 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
+Route::get('/regis_tu',function(){
+    return view('registrasi_tu');
+});
+
+Route::get('/regis_tu2',function(){
+    return view('layout_tu');
+});
+
+Route::resource('tu','TuController');
 Route::resource('siswa', 'SiswaController');
 Route::resource('wali', 'WaliController');
