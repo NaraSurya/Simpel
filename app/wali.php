@@ -12,4 +12,7 @@ class wali extends Model
     {
         return $this->belongsToMany('App\siswa', 'detail_siswas', 'wali_id', 'siswa_id');
     }
+    public function agama(){
+        return $this->belongsTo('App\agama');
+    }
 }

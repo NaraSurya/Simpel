@@ -38,7 +38,7 @@ class RegistrasiController extends Controller
         if($request->hasFile('pict')){
             
             $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+            $fileName = $request->nis;
             $fileExtension = $request->file('pict')->getClientOriginalExtension();
             $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
             $filePath = $request->file('pict')->storeAs('public/profile_siswa' , $fileNameToStorage); 
@@ -56,7 +56,7 @@ class RegistrasiController extends Controller
             'tgl_lahir' => $request->tgl_lahir , 
             'email' => $request->email , 
             'agama_id'=>$request->agama_id , 
-            'pict' => $filePath
+            'pict' => $fileNameToStorage
         ]);
         // handle data Wali
         $wali = wali::firstOrCreate([
@@ -76,17 +76,17 @@ class RegistrasiController extends Controller
          */
         if($request->hasFile('berkas_nis')){
             $fileNameWithExtension = $request->file('berkas_nis')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+            $fileName = $siswa->nis.'_berkas_nis';
             $fileExtension = $request->file('berkas_nis')->getClientOriginalExtension();
             $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-            $filePath = $request->file('berkas_nis')->storeAs('public/berkas_siswa_nis' , $fileNameToStorage); 
+            $filePath = $request->file('berkas_nis')->storeAs('public/berkas' , $fileNameToStorage); 
         } 
         else {
             $filePath = 'PATH KE PROFILE UMUM';
         }
         $berkas = berkas::create([
             'siswa_id' => $siswa->id,
-            'path' => $filePath,
+            'path' => $fileNameToStorage,
             'jenis_berkas' => '1'
         ]);
         /**
@@ -94,17 +94,17 @@ class RegistrasiController extends Controller
          */
         if($request->hasFile('berkas_kk')){
             $fileNameWithExtension = $request->file('berkas_kk')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+            $fileName = $siswa->nis.'_berkas_kk';
             $fileExtension = $request->file('berkas_kk')->getClientOriginalExtension();
             $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-            $filePath = $request->file('berkas_kk')->storeAs('public/berkas_siswa_kk' , $fileNameToStorage); 
+            $filePath = $request->file('berkas_kk')->storeAs('public/berkas' , $fileNameToStorage); 
         } 
         else {
             $filePath = 'PATH KE PROFILE UMUM';
         }
         $berkas = berkas::create([
             'siswa_id' => $siswa->id,
-            'path' => $filePath,
+            'path' => $fileNameToStorage,
             'jenis_berkas' => '2'
         ]);
         /**
@@ -112,20 +112,29 @@ class RegistrasiController extends Controller
          */
         if($request->hasFile('berkas_pembayaran')){
             $fileNameWithExtension = $request->file('berkas_pembayaran')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
+            $fileName = $siswa->nis.'_berkas_pembayaran';
             $fileExtension = $request->file('berkas_pembayaran')->getClientOriginalExtension();
             $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-            $filePath = $request->file('berkas_pembayaran')->storeAs('public/berkas_siswa_pembayaran' , $fileNameToStorage); 
+            $filePath = $request->file('berkas_pembayaran')->storeAs('public/berkas' , $fileNameToStorage); 
         } 
         else {
             $filePath = 'PATH KE PROFILE UMUM';
         }
         $berkas = berkas::create([
             'siswa_id' => $siswa->id,
-            'path' => $filePath,
+            'path' => $fileNameToStorage,
             'jenis_berkas' => '3'
         ]);
         return "sukses";
    
+    }
+    public function view(){
+        $siswa = siswa::where('verified','0')->get();
+        return view('tata_usaha.validasi_siswa_baru',['siswas'=>$siswa]);
+    }
+
+    public function show($id){
+        $siswa = siswa::find($id);
+        return view('tata_usaha.biodata_siswa_baru',['siswa'=>$siswa]);
     }
 }
