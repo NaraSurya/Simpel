@@ -28,7 +28,7 @@ class GuruController extends Controller
     {
         $listagama = agama::all();
         $listmapel = mapel::all();
-        return view('registrasi_guru',['pilihanmapel'=>$listmapel , 'pilihanagama'=>$listagama]);
+        return view('tata_usaha.registrasi_guru',['pilihanmapel'=>$listmapel , 'pilihanagama'=>$listagama]);
         
     }
 
@@ -42,7 +42,7 @@ class GuruController extends Controller
     {
         $this->validate($request, [
             'nama' => 'required' , 
-            'nip' => 'numeric|required',
+            'nip' => 'required',
             'alamat' => 'required' , 
             'no_tlp' => 'required' , 
             'jenis_kelamin' => 'required' , 
@@ -56,7 +56,7 @@ class GuruController extends Controller
        if($request->hasFile('pict')){
             
         $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
-        $fileName = $request->nis;
+        $fileName = $request->nip;
         $fileExtension = $request->file('pict')->getClientOriginalExtension();
         $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
         $filePath = $request->file('pict')->storeAs('public/profile_guru' , $fileNameToStorage); 
@@ -78,7 +78,7 @@ class GuruController extends Controller
 
         
     ]);
-        return redirect('LIST GURU');
+        return redirect('tu/list_guru');
     }
 
     /**

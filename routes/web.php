@@ -23,7 +23,7 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
-Route::get('/registrasi_guru', 'GuruController@create');
+
 
 Route::post('/regis', 'RegistrasiController@siswa');
 
@@ -33,4 +33,5 @@ Route::prefix('/tu')->group(function(){
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
     Route::get('/biodata_guru/{id}','GuruController@show');
     Route::post('/regisguru', 'GuruController@store');
+    Route::get('/registrasi_guru', 'GuruController@create');
 });

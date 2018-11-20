@@ -14,7 +14,7 @@
             </div>
         </div>
             {{-- form guru --}}
-            <form id="form_guru" method="POST" action="regisguru" enctype="multipart/form-data">
+            <form id="form_guru" method="POST" action="/tu/regisguru" enctype="multipart/form-data">
             @csrf
 
             <div class="card mt-5" style="border-color:#ACD3FB">
@@ -43,7 +43,7 @@
                                 <label for="nis">NIP</label>
                                 <div class="input-container">
                                     <i class="far fa-id-card icon-form"></i>
-                                    <input type="text" class="form-control" name="nis" id="nip" placeholder="Harap diisi">
+                                    <input type="text" class="form-control" name="nip" id="nip" placeholder="Harap diisi">
                                 </div>      
                             </div>
                             <div class="form-group col mr-3">
@@ -69,11 +69,11 @@
                                                 <i class="	fa fa-venus-mars icon-form" ></i>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="L" required>
+                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="Laki-Laki" required>
                                             <label  for="laki1">Laki-Laki</label>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="P" required>
+                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="Perempuan" required>
                                             <label  for="perempuan2">Perempuan</label>
                                         </div>
                                     </div>    
