@@ -63,8 +63,7 @@ class WaliController extends Controller
            'jenis_kelamin' => 'L' , 
            'tgl_lahir' => $request->tgl_lahir , 
            'email' => $request->email , 
-           'agama_id' => $request->agama_id, 
-            'pict' => 'foto'
+           'agama_id' => $request->agama_id
        ]);
        $siswa = siswa::where('nis',$request->nis)->first();
        $wali->siswa()->attach($siswa->id);

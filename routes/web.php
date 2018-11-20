@@ -23,5 +23,9 @@ Route::get('/regis',function(){
     return view('registrasi');
 });
 
-Route::resource('siswa', 'SiswaController');
-Route::resource('wali', 'WaliController');
+Route::post('/regis', 'RegistrasiController@siswa');
+
+Route::prefix('/tu')->group(function(){
+    Route::get('/validate-siswa-baru', 'RegistrasiController@view');
+    Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
+});
