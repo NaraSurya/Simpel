@@ -5,6 +5,7 @@
    <div class="container-fluid">
         <div class="row my-5 p-3 bg-white mr-5">
             <div class="col-12">
+            <a href="/tu/list_guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
                 <div class="mb-3 text-center">  
                     <span class="number"> 1 </span> 
                     <span style="font-size:18px;">Data Guru</span> 

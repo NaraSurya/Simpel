@@ -8,6 +8,7 @@
             <div class="col-sm-12 col-md-9">
                 <h4 class="display-6">List Staff Guru</h4>
                 <hr class="my-4">
+                    <a href="/tu/registrasi_guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Registrasi Guru</a>
                 <table class="table table-borderless text-center">
                     <thead>
                         <tr>
@@ -30,7 +31,7 @@
                                 <td class="align-middle">{{ $guru->nip }}</td>
                                 <td class="align-middle">{{ $guru->nama }}</td>
                                 <td class="align-middle">{{ $guru->email }}</td>
-                                <td class="align-middle"><a href="/tu/biodata-guru/{{$guru->id}}" class=""><i class="fas fa-external-link-alt fa-lg"></i></a></td>
+                                <td class="align-middle"><a href="/tu/biodata_guru/{{$guru->id}}" class=""><i class="fas fa-external-link-alt fa-lg"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>

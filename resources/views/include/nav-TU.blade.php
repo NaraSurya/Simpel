@@ -29,7 +29,7 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link icon  mb-2 menu" href="#">
+    <a class="nav-link icon  mb-2 menu" href="/tu/list_guru">
         <i class="fas fa-chalkboard-teacher"></i>
     </a>
 </li>
