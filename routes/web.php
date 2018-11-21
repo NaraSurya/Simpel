@@ -28,4 +28,7 @@ Route::post('/regis', 'RegistrasiController@siswa');
 Route::prefix('/tu')->group(function(){
     Route::get('/validate-siswa-baru', 'RegistrasiController@view');
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
+    Route::put('/verify-siswa-baru/{id}','RegistrasiController@verify');
+    Route::resource('/siswa', 'SiswaController');
+    
 });
