@@ -7,15 +7,16 @@
             <a href="/tu/guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
             </div>
             <div class="form-group col  text-center">
-                <h2>Form Registrasi Guru</h2>
+                <h2>Form Edit Data Guru</h2>
             </div>
             <div class="form-group col text-right">
             <a href="home/dashboard" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Home</a>    
             </div>
         </div>
             {{-- form guru --}}
-            <form id="form_guru" method="POST" action="/tu/guru" enctype="multipart/form-data">
+            <form id="form_guru" method="POST" action="/tu/guru/{{$guru->id}}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
 
             <div class="card mt-5" style="border-color:#ACD3FB">
                
@@ -28,14 +29,14 @@
                             <label for="nama_gr">Nama</label>
                             <div class="input-container">
                                 <i class="fa fa-user icon-form"></i>
-                                <input type="text" class="form-control" name="nama" id="nama_gr" placeholder="Harap diisi">
+                                <input type="text" class="form-control" name="nama" id="nama_gr" placeholder="Harap diisi" value="{{$guru->nama}}">
                             </div>    
                         </div>
                         <div class="form-group col">
                             <label for="alamat_gr">Alamat</label>
                             <div class="input-container">
                                 <i class="fa fa-home icon-form"></i>
-                                <input type="text" class="form-control" name="alamat" id="alamat_gr" placeholder="Harap diisi">
+                                <input type="text" class="form-control" name="alamat" id="alamat_gr" placeholder="Harap diisi" value="{{$guru->alamat}}">
                             </div>
                         </div>
                         <div class="form-row ml-2 ">
@@ -43,14 +44,14 @@
                                 <label for="nis">NIP</label>
                                 <div class="input-container">
                                     <i class="far fa-id-card icon-form"></i>
-                                    <input type="text" class="form-control" name="nip" id="nip" placeholder="Harap diisi">
+                                    <input type="text" class="form-control" name="nip" id="nip" placeholder="Harap diisi" value="{{$guru->nip}}">
                                 </div>      
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="telepon_gr">Telepon</label>
                                 <div class="input-container">
                                     <i class="fas fa-mobile icon-form"></i>
-                                    <input type="text" class="form-control" name="no_tlp" id="telepon_gr" placeholder="Harap diisi">
+                                    <input type="text" class="form-control" name="no_tlp" id="telepon_gr" placeholder="Harap diisi" value="{{$guru->no_tlp}}">
                                 </div>  
                             </div>
                         </div>
@@ -59,7 +60,7 @@
                                     <label for="tgl_gr">Tanggal lahir</label>
                                     <div class="input-container">
                                         <i class="far fa-calendar-alt icon-form"></i>
-                                        <input type="date" class="form-control" name="tgl_lahir" id="tgl_gr" placeholder="Harap diisi">
+                                        <input type="date" class="form-control" name="tgl_lahir" id="tgl_gr" placeholder="Harap diisi" value="{{$guru->tgl_lahir}}">
                                     </div>
                             </div>
                             <div class="form-group col mr-3">
@@ -84,7 +85,7 @@
                                     <label for="email_gr">Email</label>
                                         <div class="input-container">
                                             <i class="far fa-envelope icon-form"></i>
-                                            <input type="email" class="form-control" name="email" id="email_gr" placeholder="Harap diisi">
+                                            <input type="email" class="form-control" name="email" id="email_gr" placeholder="Harap diisi" value="{{$guru->email}}">
                                         </div>   
                                 </div>
                                 <div class="form-group col mr-3">
