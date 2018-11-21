@@ -7,9 +7,9 @@
             <div class="col-6">
                 <a href="/tu/guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a> 
             </div>
-            <div class="col-6 text-right">
-            <a href="/tu/guru/{{$guru->id}}/edit" class="btn btn-primary  " style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Edit</a>    
-            <form method="POST" action="/tu/guru/{{$guru->id}}">
+            <div class="col-6 text-right d-flex justify-content-end">
+            <a href="/tu/guru/{{$guru->id}}/edit" class="btn btn-primary mr-3  " style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Edit</a>    
+            <form method="POST" class="" action="/tu/guru/{{$guru->id}}">
                 @csrf
                 @method('DELETE')
                 <button type='submit' class="btn btn-danger mr-5 " style="border:none; width: 130px !important; border-radius: 20px;">Delete</button>
