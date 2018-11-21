@@ -28,7 +28,7 @@ class GuruController extends Controller
     {
         $listagama = agama::all();
         $listmapel = mapel::all();
-        return view('tata_usaha.registrasi_guru',['pilihanmapel'=>$listmapel , 'pilihanagama'=>$listagama]);
+        return view('tata_usaha.guru.registrasi_guru',['pilihanmapel'=>$listmapel , 'pilihanagama'=>$listagama]);
         
     }
 
@@ -89,7 +89,7 @@ class GuruController extends Controller
      */
     public function show($id){
         $guru = guru::find($id);
-        return view('tata_usaha.biodata_guru',['guru'=>$guru]);
+        return view('tata_usaha.guru.biodata_guru',['guru'=>$guru]);
     }
 
     /**
@@ -128,7 +128,7 @@ class GuruController extends Controller
 
     public function list(){
         $guru = guru::all();
-        return view('tata_usaha.list_guru',['gurus'=>$guru]);
+        return view('tata_usaha.guru.list_guru',['gurus'=>$guru]);
     }
 
 
