@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\siswa;
 use App\wali;
-use App\berkas;
 use App\agama;
+use App\berkas; 
+use Illuminate\Support\Facades\Hash;
+
 class RegistrasiController extends Controller
 {
 
@@ -136,11 +138,24 @@ class RegistrasiController extends Controller
     }
     public function view(){
         $siswa = siswa::where('verified','0')->get();
-        return view('tata_usaha.validasi_siswa_baru',['siswas'=>$siswa]);
+        return view('tata_usaha.siswa.validasi_siswa_baru',['siswas'=>$siswa]);
     }
 
     public function show($id){
         $siswa = siswa::find($id);
-        return view('tata_usaha.biodata_siswa_baru',['siswa'=>$siswa]);
+        return view('tata_usaha.siswa.biodata_siswa_baru',['siswa'=>$siswa]);
+    }
+
+    public function verify($id){
+        $password = str_random(8);
+        $hash_password = bcrypt($password);
+        //return Hash::check($password, $hash_password)?'true':'false';
+        $siswa = siswa::find($id);
+        $siswa->username = $siswa->email;
+        $siswa->password = $hash_password;
+        $siswa->verified = '1'; 
+        $siswa->save();
+
+        return redirect('/tu/validate-siswa-baru');
     }
 }
