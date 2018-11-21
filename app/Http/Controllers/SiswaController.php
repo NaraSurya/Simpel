@@ -14,7 +14,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        //
+        $siswas = siswa::all();
+        return view('tata_usaha.siswa.list_siswa',['siswas'=>$siswas]);
     }
 
     /**
@@ -35,44 +36,7 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-       $this->validate($request, [
-            'nama' => 'required' , 
-            'nis' => 'numeric|required',
-            'alamat' => 'required' , 
-            'no_tlp' => 'required' , 
-            'jenis_kelamin' => 'required' , 
-            'tgl_lahir' =>'required' , 
-            'email' => 'required|email',
-            'agama_id' => 'required|numeric'
-            //'pict' => 'required|image|'
-       ]);
-
-       //handle file 
-    //    if($request->hasFile('pict')){
-    //         $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
-    //         $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
-    //         $fileExtension = $request->file('pict')->getClientOriginalExtension();
-    //         $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-    //         $filePath = $request->file('pict')->storeAs('public/profile_siswa' , $fileNameToStorage); 
-    //    } 
-    //    else {
-    //        $fileName = 'PATH KE PROFILE UMUM';
-    //    }
-        return $request;
-        $siswa = new siswa; 
-        $siswa->nama = $request->nama; 
-        $siswa->nis = $request->nis;
-        $siswa->alamat = $request->alamat;
-        $siswa->no_tlp = $request->no_tlp;
-        $siswa->jenis_kelamin = $request->jenis_kelamin;
-        $siswa->tgl_lahir = $request->tgl_lahir;
-        $siswa->email = $request->email;
-        $siswa->agama_id = $request->agama_id;
-      //  $siswa->pict = $filePath;
-        $siswa->save();
-
-        return redirect('regis'); 
-
+      
 
     }
 
