@@ -34,4 +34,7 @@ Route::prefix('/tu')->group(function(){
     Route::get('/biodata_guru/{id}','GuruController@show');
     Route::post('/regisguru', 'GuruController@store');
     Route::get('/registrasi_guru', 'GuruController@create');
+    Route::put('/verify-siswa-baru/{id}','RegistrasiController@verify');
+    Route::resource('/siswa', 'SiswaController');
+    
 });
