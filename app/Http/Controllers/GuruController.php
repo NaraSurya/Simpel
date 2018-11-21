@@ -16,7 +16,8 @@ class GuruController extends Controller
      */
     public function index()
     {
-        //
+        $guru = guru::all();
+        return view('tata_usaha.guru.list_guru',['gurus'=>$guru]);
     }
 
     /**
@@ -126,10 +127,5 @@ class GuruController extends Controller
         //
     }
 
-    public function list(){
-        $guru = guru::all();
-        return view('tata_usaha.guru.list_guru',['gurus'=>$guru]);
-    }
-
-
+ 
 }
