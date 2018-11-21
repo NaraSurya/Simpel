@@ -36,31 +36,7 @@ class BerkasController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate([
-            'berkas' => 'required |image' , 
-            'jenis_berkas' => 'required'
-        ]);
-
-
-        if($request->hasFile('berkas')){
-            $fileNameWithExtension = $request->file('berkas')->getClientOriginalName();
-            $fileName = pathinfo($fileNameWithExtension, PATHINFO_FILENAME);
-            $fileExtension = $request->file('berkas')->getClientOriginalExtension();
-            $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-            $filePath = $request->file('berkas')->storeAs('public/profile_wali' , $fileNameToStorage); 
-        } 
-        else {
-            $fileName = 'PATH KE PROFILE UMUM';
-        }
-
-        $siswa = siswa::where('nis' , $request->nis);
-
-
-        $berkas = new berkas;
-        $berkas->path = $filePath;
-        $berkas->jenis_berkas = $request->jenis_berkas;
-        $berkas->siswa_id = $siswa->id;
-        $berkas->save();
+        
     }
 
     /**

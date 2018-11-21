@@ -106,6 +106,20 @@
         .icon{
             font-size: 1.25rem;
         }
+        .icon-form {
+            padding: 10px;
+            background:#D5EAFF;
+            border: 1px solid #FFF;
+            color: #80B9FD;
+            min-width: 50px;
+            text-align: center;
+            
+        }
+        .input-container {
+            display: flex;
+            width: 100%;
+            margin-bottom: 15px;
+        }
         .active{
             color: #007bff !important;
         }

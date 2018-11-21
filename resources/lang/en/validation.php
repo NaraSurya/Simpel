@@ -125,40 +125,58 @@ return [
     */
 
     'custom' => [
-
+        'nama' => [
+            'required' => 'Nama Wajib diisi!',
+            'regex' => 'Nama hanya boleh mengandung huruf',
+        ],
+        'alamat' => [
+            'required' => 'Alamat wajib diiisi!',
+        ],
+        'nis' => [
+            'required' => 'NIS wajib diiisi!',
+            'numeric' => 'NIS hanya boleh mengandung angka',
+        ],
+        'no_tlp' => [
+            'required' => 'Telepon wajib diisi!',
+            'numeric' => 'Telepon hanya boleh mengandung angka',
+        ],
+        'tgl_lahir' => [
+            'required' => 'Tanggal Lahir wajib diiisi!',
+        ],
+        'jenis_kelamin' => [
+            'required' => 'Jenis Kelamin wajib diisi!',
+        ],
+        'email' => [
+            'required' => 'Email wajib diisi!',  
+            'email' => 'Email tidak valid!',
+        ],
         'agama_id' => [
             'required' => 'Agama wajib diisi!',
         ],
 
-        'nama' => [
-            'required' => 'Nama wajib diisi!',
+        'nama_wl' => [
+            'required' => 'Nama Wali Wajib diisi!',
+            'alpha' => 'Nama hanya boleh mengandung huruf',
         ],
-
-        'tgl_lahir' => [
-            'required' => 'Tanggal lahir wajib diisi!',
+        'alamat_wl' => [
+            'required' => 'Alamat Wali wajib diiisi!',
         ],
-
-        'jenis_kelamin' => [
-            'required' => 'Jenis kelamin wajib diisi!',
+        'no_tlp_wl' => [
+            'required' => 'Telepon Wali wajib diisi!',
+            'numeric' => 'Telepon hanya boleh mengandung angka',
         ],
-
-        'alamat' => [
-            'required' => 'Alamat wajib diisi!',
+        'tgl_lahir_wl' => [
+            'required' => 'Tanggal Lahir Wali wajib diiisi!',
         ],
-
-        'no_hp' => [
-            'required' => 'Nomer handphone wajib diisi!',
-            'numeric'  => 'Nomer handphone anda tidak valid',
+        'jenis_kelamin_wl' => [
+            'required' => 'Jenis Kelamin Wali wajib diisi!',
         ],
-
-        'pict' => [
-            'required' => 'Picture wajib diisi!',
+        'email_wl' => [
+            'required' => 'Email Wali wajib diisi!',  
+            'email' => 'Email tidak valid!',
         ],
-
-
-        'email' => [
-            'required' => 'Email wajib diisi!',
-            'email'    => 'Email anda tidak valid',
+        'agama_wl' => [
+            'required' => 'Agama Wali wajib diisi!',
         ],
 
     ],

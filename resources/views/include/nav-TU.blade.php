@@ -24,12 +24,12 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link icon  mb-2 menu" href="#">
+    <a class="nav-link icon  mb-2 menu" href="/tu/siswa">
         <i class="fas fa-users"></i>
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link icon  mb-2 menu" href="#">
+    <a class="nav-link icon  mb-2 menu" href="/tu/list_guru">
         <i class="fas fa-chalkboard-teacher"></i>
     </a>
 </li>

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guru extends Model
 {
+    protected $fillable = ['nama' , 'nip' , 'alamat' , 'no_tlp' , 'jenis_kelamin' , 'tgl_lahir' , 'mapel_id', 'email' , 'agama_id' , 'pict' ];
     
     //aku gak buat tabel ini
     public function agama()
