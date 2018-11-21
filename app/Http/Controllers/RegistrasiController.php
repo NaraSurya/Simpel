@@ -5,27 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\siswa;
 use App\wali;
+use App\agama;
 use App\berkas; 
 use Illuminate\Support\Facades\Hash;
+
 class RegistrasiController extends Controller
 {
+
+    public function registrasi () {
+        $agamas = Agama::all();
+        return view('registrasi',['agamas'=>$agamas]);
+    }
     
     public function siswa(Request $request){
        // return $request;
         //Validasi form
         $this->validate($request, [
-            'nama' => 'required' , 
-            'nis' => 'required',
+            'nama' => 'required|regex:/^[a-zA-Z]/', 
+            'nis' => 'required|numeric',//tambah Snumeric
             'alamat' => 'required' , 
-            'no_tlp' => 'required' , 
-            'jenis_kelamin' => 'required' , 
+            'no_tlp' => 'required|numeric|', //tambah numeric 
+            'jenis_kelamin' => 'required', 
             'tgl_lahir' =>'required' , 
             'email' => 'required|email',
             'agama_id' => 'required|numeric',
             'pict' => 'required', 
-            'nama_wl' => 'required' , 
+            'nama_wl' => 'required|alpha' , 
             'alamat_wl' => 'required' , 
-            'no_tlp_wl' => 'required' , 
+            'no_tlp_wl' => 'required|numeric',//tambah numeric 
             'jenis_kelamin_wl' => 'required' , 
             'tgl_lahir_wl' =>'required' , 
             'email_wl' => 'required|email',
@@ -126,7 +133,7 @@ class RegistrasiController extends Controller
             'path' => $fileNameToStorage,
             'jenis_berkas' => '3'
         ]);
-        return "sukses";
+        return view('succes_Registrasi_siswa');
    
     }
     public function view(){
