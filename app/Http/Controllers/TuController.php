@@ -7,6 +7,38 @@ use Illuminate\Http\Request;
 
 class TuController extends Controller
 {
+
+
+    private function validasi(Request $request){
+        // return $request;
+         //Validasi form
+         $this->validate($request, [
+             'agama_id' => 'required' , 
+             'nama' => 'required',
+             'tgl_lahir' => 'required' , 
+             'jenis_kelamin' => 'required' , 
+             'alamat' => 'required' , 
+             'no_hp' =>'required|numeric' , 
+             'pict' => 'required',
+             'email' => 'required|email' , 
+         ]);
+
+        // handle foto profile siswa
+        if($request->hasFile('pict')){
+            
+            $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
+            $fileName = $request->nama;
+            $fileExtension = $request->file('pict')->getClientOriginalExtension();
+            $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
+            $filePath = $request->file('pict')->storeAs('public/profile_tu' , $fileNameToStorage); 
+        } 
+        else {
+            $filePath = 'PATH KE PROFILE UMUM';
+        }
+
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +69,7 @@ class TuController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validasi($request);
         $tu= new Tu;
         $tu->agama_id = $request->agama_id;
         $tu->nama = $request->nama;
@@ -45,8 +78,6 @@ class TuController extends Controller
         $tu->alamat = $request->alamat;
         $tu->no_hp= $request->no_hp;
         $tu->pict = $request->pict;
-        $tu->username = $request->username;
-        $tu->password = $request->password;
         $tu->email = $request->email;
         $tu->first = 1;
         $tu->save();

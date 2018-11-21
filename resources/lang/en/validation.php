@@ -125,9 +125,42 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+
+        'agama_id' => [
+            'required' => 'Agama wajib diisi!',
         ],
+
+        'nama' => [
+            'required' => 'Nama wajib diisi!',
+        ],
+
+        'tgl_lahir' => [
+            'required' => 'Tanggal lahir wajib diisi!',
+        ],
+
+        'jenis_kelamin' => [
+            'required' => 'Jenis kelamin wajib diisi!',
+        ],
+
+        'alamat' => [
+            'required' => 'Alamat wajib diisi!',
+        ],
+
+        'no_hp' => [
+            'required' => 'Nomer handphone wajib diisi!',
+            'numeric'  => 'Nomer handphone anda tidak valid',
+        ],
+
+        'pict' => [
+            'required' => 'Picture wajib diisi!',
+        ],
+
+
+        'email' => [
+            'required' => 'Email wajib diisi!',
+            'email'    => 'Email anda tidak valid',
+        ],
+
     ],
 
     /*

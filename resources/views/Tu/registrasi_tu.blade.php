@@ -73,7 +73,8 @@
             margin-bottom: 15px;
         }
 
-        .icon {
+        /* icon diubah menjadi icon1 */
+        .icon1 { 
             padding: 10px;
             background:#D5EAFF;
             border: 1px solid #FFF;
@@ -171,6 +172,14 @@
             color:#9E9E9E; 
             background-color:white; 
         }
+
+        .alert-danger {
+            font-size:14px; 
+            padding:1px;
+            background: white;
+            border: none;
+            color: red;
+        }
        
     </style>
 
@@ -179,8 +188,9 @@
 <div class="container">
 
             {{-- form siswa --}}
-            <form id="form_tu" method="POST" action="/tu">
+            <form action="/tu" method="post" enctype="multipart/form-data">
             @csrf
+
             <div class="card mt-5" style="border-color:#ACD3FB">
                
                 <div class="header-text text-center">  
@@ -192,26 +202,32 @@
                         <div class="form-group col ">
                             <label for="nama_sw">Nama</label>
                             <div class="input-container">
-                                <i class="fa fa-user icon"></i>
+                                <i class="fa fa-user icon1"></i>
                                 <input type="text" class="form-control" name="nama" id="nama_sw" placeholder="Harap diisi">
-                            </div>    
+                            </div>  
+                            <span>{!!$errors->first('nama','<p class="alert alert-danger" >:message</p>')!!}  
+                            </span>
                         </div>
 
                         <div class="form-row ml-2 ">
                             <div class="form-group col mr-4">
                                 <label for="alamat_sw">Alamat</label>
                                 <div class="input-container">
-                                    <i class="fa fa-home icon"></i>
+                                    <i class="fa fa-home icon1"></i>
                                     <input type="text" class="form-control" name="alamat" id="alamat_sw" placeholder="Harap diisi">
-                                </div>    
+                                </div> 
+                                <span>{!!$errors->first('alamat','<p class="alert alert-danger" >:message</p>')!!}  
+                                </span>   
                             </div>
 
                             <div class="form-group col mr-3">
                                 <label for="telepon_sw">Telepon</label>
                                 <div class="input-container">
-                                    <i class="fas fa-mobile icon"></i>
-                                    <input type="text" class="form-control" name="no_tlp" id="telepon_sw" placeholder="Harap diisi">
-                                </div>  
+                                    <i class="fas fa-mobile icon1"></i>
+                                    <input type="text" class="form-control" name="no_hp" id="telepon_sw" placeholder="Harap diisi">
+                                </div> 
+                                <span>{!!$errors->first('no_hp','<p class="alert alert-danger" >:message</p>')!!}  
+                                </span> 
                             </div>
                         </div>
 
@@ -219,39 +235,46 @@
                             <div class="form-group col mr-4">
                                     <label for="tgl_sw">Tanggal lahir</label>
                                     <div class="input-container">
-                                        <i class="far fa-calendar-alt icon"></i>
+                                        <i class="far fa-calendar-alt icon1"></i>
                                         <input type="date" class="form-control" name="tgl_lahir" id="tgl_sw" placeholder="Harap diisi">
                                     </div>
+                                    <span>{!!$errors->first('tgl_lahir','<p class="alert alert-danger" >:message</p>')!!}  
+                                    </span>
                             </div>
                             <div class="form-group col mr-3">
                                     <label >Jenis Kelamin</label>
                                     <div class="row">
                                         <div class="col-md-2" >
-                                                <i class="	fa fa-venus-mars icon" ></i>
+                                                <i class="	fa fa-venus-mars icon1" ></i>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="Laki-Laki" required>
+                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="Laki-Laki">
                                             <label  for="laki1">Laki-Laki</label>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="Perempuan" required>
+                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="Perempuan">
                                             <label  for="perempuan2">Perempuan</label>
                                         </div>
-                                    </div>    
+                                    </div>   
+                                    <span>{!!$errors->first('jenis_kelamin','<p class="alert alert-danger mt-2" >:message</p>')!!}  
+                                </span> 
                                 </div> 
+                                
                             </div>
                             <div class="form-row ml-2">
                                 <div class="form-group col mr-4">
                                     <label for="email_sw">Email</label>
                                         <div class="input-container">
-                                            <i class="far fa-envelope icon"></i>
+                                            <i class="far fa-envelope icon1"></i>
                                             <input type="email" class="form-control" name="email" id="email_sw" placeholder="Harap diisi">
-                                        </div>   
+                                        </div>
+                                    <span>{!!$errors->first('email','<p class="alert alert-danger" >:message</p>')!!}  
+                                    </span>   
                                 </div>
                                 <div class="form-group col mr-3">
                                     <label for="agama_sw">Agama</label>
                                     <div class="input-container">
-                                        <i class="fas fa-church icon"></i>
+                                        <i class="fas fa-church icon1"></i>
                                         <select id="agama_sw" name="agama_id" class="custom-select">
                                         <option selected disabled>Pilih Agama</option>
                                         <option value="1">One</option>
@@ -259,31 +282,15 @@
                                         <option value="3">Three</option>
                                         </select>
                                     </div>
+                                    <span>{!!$errors->first('agama_id','<p class="alert alert-danger" >:message</p>')!!}  
+                                    </span>
                                 </div>
                             </div>   
-
-                            <div class="form-row ml-2 ">
-                            <div class="form-group col mr-4">
-                                <label for="username">Username</label>
-                                <div class="input-container">
-                                    <i class="far fa-id-card icon"></i>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Harap diisi">
-                                </div>      
-                            </div>
-
-                            <div class="form-group col mr-3">
-                                <label for="password">Password</label>
-                                <div class="input-container">
-                                    <i class="fas fa-mobile icon"></i>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Harap diisi">
-                                </div>  
-                            </div>
-                            </div>
 
 
                          </div>  
                     </div>
-                </form>
+                
 
              {{-- form berkas KK --}}
             <div class="card mt-5" style="border-color:#AED6F1; padding:5px 5px; ">
@@ -291,17 +298,18 @@
                         <span class="number"> 4 </span> 
                         <span style="font-size:18px;">Upload Picture</span> 
                 </div>
-                    <form action="" method="post" enctype="multipart/form-data"  class="dropzone" id="my-awesome-dropzone" name="form_berkas2">
+                    
                         <input type="hidden" id="nis_hiddens" value="">
-                        <input type="file" name="file">
+                        <input type="file" name="pict">
+                        {{-- submit all form --}}
+                      <div class="btn-sub-edit">
+                        <button  type="submit" class="btn btn-primary" onclick="submitForms()" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
+                     </div>
                     </form>
             </div>
 
 
-                {{-- submit all form --}}
-            <div class="btn-sub-edit">
-                    <button  type="submit" class="btn btn-primary" onclick="submitForms()" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
-            </div>
+         
                   
         </div>  
          
