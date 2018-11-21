@@ -5,26 +5,34 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\siswa;
 use App\wali;
-use App\berkas;
+use App\agama;
+use App\berkas; 
+use Illuminate\Support\Facades\Hash;
+
 class RegistrasiController extends Controller
 {
+
+    public function registrasi () {
+        $agamas = Agama::all();
+        return view('registrasi',['agamas'=>$agamas]);
+    }
     
     public function siswa(Request $request){
        // return $request;
         //Validasi form
         $this->validate($request, [
-            'nama' => 'required' , 
-            'nis' => 'required',
+            'nama' => 'required|regex:/^[a-zA-Z]/', 
+            'nis' => 'required|numeric',//tambah Snumeric
             'alamat' => 'required' , 
-            'no_tlp' => 'required' , 
-            'jenis_kelamin' => 'required' , 
+            'no_tlp' => 'required|numeric|', //tambah numeric 
+            'jenis_kelamin' => 'required', 
             'tgl_lahir' =>'required' , 
             'email' => 'required|email',
             'agama_id' => 'required|numeric',
             'pict' => 'required', 
-            'nama_wl' => 'required' , 
+            'nama_wl' => 'required|alpha' , 
             'alamat_wl' => 'required' , 
-            'no_tlp_wl' => 'required' , 
+            'no_tlp_wl' => 'required|numeric',//tambah numeric 
             'jenis_kelamin_wl' => 'required' , 
             'tgl_lahir_wl' =>'required' , 
             'email_wl' => 'required|email',
@@ -125,16 +133,29 @@ class RegistrasiController extends Controller
             'path' => $fileNameToStorage,
             'jenis_berkas' => '3'
         ]);
-        return "sukses";
+        return view('succes_Registrasi_siswa');
    
     }
     public function view(){
         $siswa = siswa::where('verified','0')->get();
-        return view('tata_usaha.validasi_siswa_baru',['siswas'=>$siswa]);
+        return view('tata_usaha.siswa.validasi_siswa_baru',['siswas'=>$siswa]);
     }
 
     public function show($id){
         $siswa = siswa::find($id);
-        return view('tata_usaha.biodata_siswa_baru',['siswa'=>$siswa]);
+        return view('tata_usaha.siswa.biodata_siswa_baru',['siswa'=>$siswa]);
+    }
+
+    public function verify($id){
+        $password = str_random(8);
+        $hash_password = bcrypt($password);
+        //return Hash::check($password, $hash_password)?'true':'false';
+        $siswa = siswa::find($id);
+        $siswa->username = $siswa->email;
+        $siswa->password = $hash_password;
+        $siswa->verified = '1'; 
+        $siswa->save();
+
+        return redirect('/tu/validate-siswa-baru');
     }
 }

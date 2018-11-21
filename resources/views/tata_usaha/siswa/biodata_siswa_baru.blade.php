@@ -120,7 +120,9 @@
         </div>
         <div class="row my-5">
             <div class="col-12 text-center">
-                <a href="#" class="btn btn-lg btn-primary">Verify</a>
+                {!!Form::open(['action' => ['RegistrasiController@verify', $siswa->id] , 'method'=>'PUT']) !!}
+                    {!! Form::submit('Verify' , ['class' => 'btn btn-lg btn-primary']) !!}
+                {!! Form::close() !!}
             </div>
         </div>
         
