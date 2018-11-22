@@ -8,7 +8,7 @@
             <div class="col-sm-12 col-md-9">
                 <h4 class="display-6">List Staff Tata Usaha</h4>
                 <hr class="my-4">
-                    <a href="/tu/registrasi_tu" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 200px !important; border-radius: 20px;">Registrasi Tata Usaha</a>
+                    <a href="/tu/biodata_tu/create" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 200px !important; border-radius: 20px;">Registrasi Tata Usaha</a>
                 <table class="table table-borderless text-center">
                     <thead>
                         <tr>

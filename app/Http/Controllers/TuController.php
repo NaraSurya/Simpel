@@ -165,12 +165,12 @@ class TuController extends Controller
      * @param  \App\tu  $tu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tu $tu)
+    public function destroy($id)
     {
-        //
+        $tu = tu::find($id);
+        $tu->delete();
+        return redirect('/tu/biodata_tu');
     }
-
-   
 
 
 }

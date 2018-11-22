@@ -14,7 +14,7 @@
             </div>
         </div>
             {{-- form tata usaha --}}
-            <form id="form_tata_usaha" method="POST" action="/tu/registu" enctype="multipart/form-data">
+            <form id="form_tata_usaha" method="POST" action="/tu/biodata_tu" enctype="multipart/form-data">
             @csrf
 
             <div class="card mt-5" style="border-color:#ACD3FB">

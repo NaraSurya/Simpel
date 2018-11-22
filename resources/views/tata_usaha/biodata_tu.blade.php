@@ -7,9 +7,13 @@
             <div class="col-6">
                 <a href="/tu/biodata_tu" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Tata Usaha</a>    
             </div>
-            <div class="col-6 text-right ">
-            <a href="/tu/biodata_tu/{{ $tu->id }}/edit" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Edit</a>   
-            <a href="/tu/biodata_tu" class="btn btn-danger mr-5" style=" border:none; width: 130px !important; border-radius: 20px;">Delete</a>   
+            <div class="col-6 text-right d-flex justify-content-end">
+            <a href="/tu/biodata_tu/{{ $tu->id }}/edit" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Edit</a>  
+            <form method="POST" class="" action="/tu/biodata_tu/{{$tu->id}}">
+                @csrf
+                @method('DELETE')
+                <button type='submit' class="btn btn-danger mr-5 " style="border:none; width: 130px !important; border-radius: 20px;">Delete</button>
+            </form> 
             </div>
         </div>
         <div class="row my-5 p-3 bg-white mr-5">
