@@ -4,7 +4,7 @@
     <div class="container">
         <div class="form-row ">
             <div class="form-group col">
-            <a href="/tu/list_guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
+            <a href="/tu/guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
             </div>
             <div class="form-group col  text-center">
                 <h2>Form Registrasi Guru</h2>
@@ -14,7 +14,7 @@
             </div>
         </div>
             {{-- form guru --}}
-            <form id="form_guru" method="POST" action="/tu/regisguru" enctype="multipart/form-data">
+            <form id="form_guru" method="POST" action="/tu/guru" enctype="multipart/form-data">
             @csrf
 
             <div class="card mt-5" style="border-color:#ACD3FB">
