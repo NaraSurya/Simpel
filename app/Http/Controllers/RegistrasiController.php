@@ -7,6 +7,7 @@ use App\siswa;
 use App\wali;
 use App\agama;
 use App\berkas; 
+use App\Mail\verify_siswa_baru;
 use Illuminate\Support\Facades\Hash;
 
 class RegistrasiController extends Controller
@@ -155,6 +156,13 @@ class RegistrasiController extends Controller
         $siswa->password = $hash_password;
         $siswa->verified = '1'; 
         $siswa->save();
+
+        $dataMail = [
+            'username' => $siswa->username,
+            'password' => $password
+        ];
+        
+        \Mail::to($siswa)->send(new verify_siswa_baru($dataMail));
 
         return redirect('/tu/validate-siswa-baru');
     }
