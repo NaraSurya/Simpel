@@ -32,21 +32,25 @@ Route::get('/regis_tu2',function(){
     return view('layout_tu');
 });
 
-Route::resource('tu','TuController');
+
 Route::resource('siswa', 'SiswaController');
 Route::resource('wali', 'WaliController');
-//=======
+
 Route::post('/regis', 'RegistrasiController@siswa');
 
 Route::prefix('/tu')->group(function(){
     Route::get('/validate-siswa-baru', 'RegistrasiController@view');
     Route::get('/list_guru', 'GuruController@list');
+    Route::resource('/list_tu', 'TuController@list');
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
     Route::get('/biodata_guru/{id}','GuruController@show');
+    Route::resource('biodata_tu','TuController');
     Route::post('/regisguru', 'GuruController@store');
+    Route::post('/registu', 'TuController@store');
     Route::get('/registrasi_guru', 'GuruController@create');
+    Route::get('/registrasi_tu', 'TuController@create');
     Route::put('/verify-siswa-baru/{id}','RegistrasiController@verify');
     Route::resource('/siswa', 'SiswaController');
+
     
 });
-//>>>>>>> 966aa6fc11fc55e005840ceadb576444b0d60fbc

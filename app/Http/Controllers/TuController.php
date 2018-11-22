@@ -3,42 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\tu;
+use App\agama;
 use Illuminate\Http\Request;
 
 class TuController extends Controller
 {
-
-
-    private function validasi(Request $request){
-        // return $request;
-         //Validasi form
-         $this->validate($request, [
-             'agama_id' => 'required' , 
-             'nama' => 'required',
-             'tgl_lahir' => 'required' , 
-             'jenis_kelamin' => 'required' , 
-             'alamat' => 'required' , 
-             'no_hp' =>'required|numeric' , 
-             'pict' => 'required',
-             'email' => 'required|email' , 
-         ]);
-
-        // handle foto profile siswa
-        if($request->hasFile('pict')){
-            
-            $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
-            $fileName = $request->nama;
-            $fileExtension = $request->file('pict')->getClientOriginalExtension();
-            $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
-            $filePath = $request->file('pict')->storeAs('public/profile_tu' , $fileNameToStorage); 
-        } 
-        else {
-            $filePath = 'PATH KE PROFILE UMUM';
-        }
-
-
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -46,8 +15,8 @@ class TuController extends Controller
      */
     public function index()
     {
-        $tu = Tu::get();
-        return view('Tu.show_tu',compact('tu'));
+        $tus = Tu::get();
+        return view('tata_usaha.list_tu',compact('tus'));
     }
 
     /**
@@ -57,8 +26,12 @@ class TuController extends Controller
      */
     public function create()
     {
-        $tu = Tu::get();
-        return view('Tu.registrasi_tu',compact('tu'));
+
+        $listagama = agama::all();
+        return view('tata_usaha.registrasi_tu',[ 'pilihanagama'=>$listagama]);
+
+        // $tu = Tu::get();
+        // return view('tata_usaha.registrasi_tu',compact('tu'));
     }
 
     /**
@@ -69,21 +42,49 @@ class TuController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validasi($request);
-        $tu= new Tu;
-        $tu->agama_id = $request->agama_id;
-        $tu->nama = $request->nama;
-        $tu->tgl_lahir = $request->tgl_lahir;
-        $tu->jenis_kelamin = $request->jenis_kelamin;
-        $tu->alamat = $request->alamat;
-        $tu->no_hp= $request->no_hp;
-        $tu->pict = $request->pict;
-        $tu->email = $request->email;
-        $tu->first = 1;
-        $tu->save();
-        $tu= Tu::get();
-        return view('Tu.show_tu',compact('tu'));
+
+        // return $request;
+         //Validasi form
+         $this->validate($request, [
+            'agama_id' => 'required' , 
+            'nama' => 'required',
+            'tgl_lahir' => 'required' , 
+            'jenis_kelamin' => 'required' , 
+            'alamat' => 'required' , 
+            'no_hp' =>'required|numeric' , 
+            'pict' => 'required',
+            'email' => 'required|email' , 
+        ]);
+
+       // handle foto profile siswa
+       if($request->hasFile('pict')){
+           
+           $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
+           $fileName = $request->nama;
+           $fileExtension = $request->file('pict')->getClientOriginalExtension();
+           $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
+           $filePath = $request->file('pict')->storeAs('public/profile_tu' , $fileNameToStorage); 
+       } 
+       else {
+           $filePath = 'PATH KE PROFILE UMUM';
+       }
+       $tu = tu::create([
+        'agama_id' => $request->agama_id,
+        'nama'=> $request->nama,
+        'tgl_lahir'=> $request->tgl_lahir,
+        'jenis_kelamin' => $request->jenis_kelamin,
+        'alamat' => $request->alamat,
+        'no_hp' => $request->no_hp , 
+        'pict' => $fileNameToStorage,
+        'email' => $request->email,
+        'first'=>0 
+        
+
+        
+    ]);
+        return redirect('/tu/biodata_tu');
     }
+    
 
     /**
      * Display the specified resource.
@@ -91,9 +92,10 @@ class TuController extends Controller
      * @param  \App\tu  $tu
      * @return \Illuminate\Http\Response
      */
-    public function show(tu $tu)
+    public function show($id)
     {
-        //
+        $tu = tu::find($id);
+        return view('tata_usaha.biodata_tu',['tu'=>$tu]);
     }
 
     /**
@@ -102,9 +104,11 @@ class TuController extends Controller
      * @param  \App\tu  $tu
      * @return \Illuminate\Http\Response
      */
-    public function edit(tu $tu)
+    public function edit($id)
     {
-        //
+        $tu = tu::find($id);
+        $agama = agama::all();
+        return view('tata_usaha.form_update_tu' , ['tu'=> $tu , 'pilihanagama'=>$agama]);
     }
 
     /**
@@ -114,9 +118,45 @@ class TuController extends Controller
      * @param  \App\tu  $tu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tu $tu)
+    public function update(Request $request, $id)
     {
-        //
+        $tu = tu::find($id);
+        $this->validate($request, [
+            'agama_id' => 'required' , 
+            'nama' => 'required',
+            'tgl_lahir' => 'required' , 
+            'jenis_kelamin' => 'required' , 
+            'alamat' => 'required' , 
+            'no_hp' =>'required|numeric' , 
+            'pict' => 'required',
+            'email' => 'required|email' , 
+        ]);
+
+       // handle foto profile siswa
+       if($request->hasFile('pict')){
+           
+           $fileNameWithExtension = $request->file('pict')->getClientOriginalName();
+           $fileName = $request->nama;
+           $fileExtension = $request->file('pict')->getClientOriginalExtension();
+           $fileNameToStorage = $fileName.'_'.time().'.'.$fileExtension;
+           $filePath = $request->file('pict')->storeAs('public/profile_tu' , $fileNameToStorage); 
+       } 
+       else {
+           $filePath = 'PATH KE PROFILE UMUM';
+       }
+
+      
+       $tu->agama_id = $request->agama_id;
+       $tu->nama = $request->nama;
+       $tu->tgl_lahir = $request->tgl_lahir;
+       $tu->jenis_kelamin = $request->jenis_kelamin;
+       $tu->alamat = $request->alamat;
+       $tu->no_hp = $request->no_hp;
+       $tu->pict = $fileNameToStorage;
+       $tu->email = $request->email;
+       $tu->save();
+       
+       return redirect('/tu/biodata_tu/'.$id);
     }
 
     /**
@@ -129,4 +169,8 @@ class TuController extends Controller
     {
         //
     }
+
+   
+
+
 }
