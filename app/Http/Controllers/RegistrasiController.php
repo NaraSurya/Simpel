@@ -30,7 +30,7 @@ class RegistrasiController extends Controller
             'email' => 'required|email',
             'agama_id' => 'required|numeric',
             'pict' => 'required', 
-            'nama_wl' => 'required|alpha' , 
+            'nama_wl' => 'required|regex:/^[a-zA-Z]/' , 
             'alamat_wl' => 'required' , 
             'no_tlp_wl' => 'required|numeric',//tambah numeric 
             'jenis_kelamin_wl' => 'required' , 
