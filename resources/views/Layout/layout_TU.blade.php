@@ -163,7 +163,7 @@
                 <button class="btn d-flex-inline btn-primary rounded-circle ml-auto"><i class="fas fa-search"></i></button>
             </div>
             <ul class="navbar-nav d-flex">
-
+        
                 <li class="nav-item justify-content-end d-flex px-5 ">
                     <a class="nav-link mx-3" href="#"><i class="far fa-bell fa-lg"></i></a>
                     <button class="btn btn-primary d-flex shadow" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -174,7 +174,7 @@
 
                             </div>
                             <div class="d-inline-flex align-items-center ">
-                                Gus Agung
+                                Gus Agung Lengeh
                             </div>
                         </div>
                     </button>
@@ -187,7 +187,7 @@
                 </li>
             </ul>
         </nav>
-       
+        
         <div class="container-fluid">
             <div class="row">
                 <nav class="col-md-1 d-none d-md-block bg-light sidebar">
