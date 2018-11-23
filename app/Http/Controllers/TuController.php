@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\tu;
 use App\agama;
+use App\Mail\verify_tu_baru;
 use Illuminate\Http\Request;
 
 class TuController extends Controller
@@ -56,6 +57,9 @@ class TuController extends Controller
             'email' => 'required|email' , 
         ]);
 
+        $password = str_random(8);
+        $hash_password = bcrypt($password);
+
        // handle foto profile siswa
        if($request->hasFile('pict')){
            
@@ -77,11 +81,16 @@ class TuController extends Controller
         'no_hp' => $request->no_hp , 
         'pict' => $fileNameToStorage,
         'email' => $request->email,
-        'first'=>0 
-        
-
-        
+        'first'=>0  
     ]);
+
+    $dataEmail = [
+        'username' => $tu->email,
+        'password' => $password
+    ];
+
+    \Mail::to($tu)->send(new verify_tu_baru($dataEmail));
+
         return redirect('/tu/biodata_tu');
     }
     
@@ -171,6 +180,4 @@ class TuController extends Controller
         $tu->delete();
         return redirect('/tu/biodata_tu');
     }
-
-
 }
