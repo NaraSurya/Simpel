@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class siswa extends Model
 {
 
-   protected $fillable = ['nama' , 'nis' , 'alamat' , 'no_tlp' , 'jenis_kelamin' , 'tgl_lahir' , 'email' , 'agama_id' , 'pict' ];
+   protected $fillable = ['nama' , 'nis' , 'alamat' , 'no_tlp' , 'jenis_kelamin' , 'tgl_lahir' , 'email' , 'agama_id','jurusan_id' , 'pict' ];
     
 
 
@@ -61,6 +61,11 @@ class siswa extends Model
    public function mading()
    {
        return $this->belongsToMany('App\mading', 'komens');
+   }
+
+   public function jurusan()
+   {
+       return $this->belongsTo('App\jurusan');
    }
    
    

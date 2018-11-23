@@ -51,9 +51,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-md-8 border">
+                    <div class="col-sm-12 col-md-7 border">
                         <h6 class="mt-3 font-color-grey">Alamat</h6>
                         <h5 class=" mb-3">{{$siswa->alamat}}</h5>
+                    </div>
+                    <div class="col-sm-12 col-md-1 border">
+                        <h6 class="mt-3 font-color-grey">Jurusan</h6>
+                        <h5 class=" mb-3">{{$siswa->jurusan->jurusan}}</h5>
                     </div>
                     <div class="col-sm-12 col-md-2 border">
                         <h6 class="mt-3 font-color-grey">tanggal lahir</h6>

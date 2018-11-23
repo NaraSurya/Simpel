@@ -6,6 +6,7 @@ use App\siswa;
 use App\wali;
 use App\agama;
 use App\periode;
+use App\jurusan;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -71,8 +72,9 @@ class SiswaController extends Controller
      */
     public function edit(siswa $siswa)
     {
+        $jurusans = jurusan::all();
         $agama = agama::all();
-        return view('tata_usaha.siswa.edit' , ['siswa'=>$siswa , 'agamas'=>$agama]);
+        return view('tata_usaha.siswa.edit' , ['siswa'=>$siswa , 'agamas'=>$agama , 'jurusans'=>$jurusans]);
     }
 
     /**
@@ -94,6 +96,7 @@ class SiswaController extends Controller
             'tgl_lahir' =>'required' , 
             'email' => 'required|email',
             'agama_id' => 'required|numeric',
+            'jurusan' => 'required|numeric',
             'pict' => 'required', 
             'nama_wl' => 'required|regex:/^[a-zA-Z]/' , 
             'alamat_wl' => 'required' , 
@@ -126,6 +129,7 @@ class SiswaController extends Controller
         $siswa->jenis_kelamin = $request->jenis_kelamin;
         $siswa->email = $request->email;
         $siswa->agama_id = $request->agama_id;
+        $siswa->jurusan_id = $request->jurusan;
         $siswa->pict = $fileNameToStorage;
         $siswa->save();
 

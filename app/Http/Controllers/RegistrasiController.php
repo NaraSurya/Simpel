@@ -68,6 +68,7 @@ class RegistrasiController extends Controller
             'tgl_lahir' => $request->tgl_lahir , 
             'email' => $request->email , 
             'agama_id'=>$request->agama_id , 
+            'jurusan_id'=>$request->jurusan,
             'pict' => $fileNameToStorage
         ]);
         // handle data Wali
