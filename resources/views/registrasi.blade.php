@@ -306,17 +306,32 @@
                                     <span>{!!$errors->first('agama_id', '<p class="alert alert-danger" >:message</p>') !!}</span>
                                 </div>
                             </div> 
-
-                            <div class="form-group col ">
-                                    <label for="nama_sw">Foto Profile</label>
-                                    <div class="input-container">
-                                        <i class="fas fa-camera icon"></i>
-                                        <div class="custom-file w-50" >
-                                            <input type="file" class="custom-file-input" id="customFile3"  name="pict">
-                                            <label class="custom-file-label" for="customFile3">Choose file</label>
-                                        </div>
-                                    </div>    
+                            <div class="form-row ml-2">
+                                <div class="form-group col mr-4">
+                                    <label for="jurusan">Jurusan</label>
+                                        <div class="input-container">
+                                                <i class="fas fa-book icon"></i>
+                                                <select id="jurusan" name="jurusan" class="custom-select">
+                                                    <option selected disabled>Pilih Jurusan</option>
+                                                    @foreach ($jurusans as $jurusan)
+                                                        <option value="{{$jurusan->id}}">{{$jurusan->jurusan}}</option>    
+                                                    @endforeach
+                                                </select>
+                                        </div> 
+                                        <span>{!!$errors->first('jurusan', '<p class="alert alert-danger" >:message</p>') !!}</span>  
+                                </div>
+                                <div class="form-group col mr-3 ">
+                                    <label for="foto">Foto Profile</label>
+                                        <div class="input-container">
+                                            <i class="fas fa-camera icon"></i>
+                                            <div class="custom-file " >
+                                                <input type="file" class="custom-file-input" id="foto"  name="pict">
+                                                <label class="custom-file-label" for="customFile3">Choose file</label>
+                                            </div>
+                                        </div>    
+                                </div>
                             </div>
+                         
                          </div>  
                     </div>
                

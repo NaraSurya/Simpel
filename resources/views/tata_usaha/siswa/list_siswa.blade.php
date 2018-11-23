@@ -25,7 +25,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="w-100 h-100 bg-white align-middle text-center">
-                    <h5>Grapic jumlah siswa per angkatan</h5>
+                    <canvas id="myChart" width="400" height="150"></canvas>
                 </div>
             </div>
         </div>
@@ -53,13 +53,13 @@
                                 <td class="align-middle">{{ $siswa->nis }}</td>
                                 <td class="align-middle">{{ $siswa->nama }}</td>
                                 <td class="align-middle">{{ $siswa->email }}</td>
-                                <td class="align-middle"><a href="/tu/biodata-siswa-baru/{{$siswa->id}}" class=""><i class="fas fa-external-link-alt fa-lg"></i></a></td>
+                                <td class="align-middle"><a href="/tu/siswa/{{$siswa->id}}" class=""><i class="fas fa-external-link-alt fa-lg"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="col-sm-12 col-md-3">
+            <div class="col-sm-12 col-md-3 mb-5">
                 <div class="card w-80">
                     <div class="card-body text-center">
                         <div class="mx-5">
@@ -84,5 +84,40 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script>
+        
+        let periodes =  {!! json_encode($tahun_periodes) !!};
+        let jumlah_siswa = {!! json_encode($jumlah_siswa_periode) !!}
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+
+            // The data for our dataset
+            data: {
+                labels: periodes,
+                datasets: [{
+                    label: "Jumlah siswa",
+                    backgroundColor: ' rgb(76, 155, 251)',
+                    borderColor: ' rgb(76, 155, 251)',
+                    data: jumlah_siswa,
+                }]
+            },
+            
+
+            // Configuration options go here
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+                
+            }
+        });
+    </script>
 
 @endsection

@@ -20,24 +20,7 @@ Route::get('/test', function () {
 });
 
 Route::get('/regis','RegistrasiController@registrasi');
-
-
-
-//<<<<<<< HEAD
-Route::get('/regis_tu',function(){
-    return view('registrasi_tu');
-});
-
-Route::get('/regis_tu2',function(){
-    return view('layout_tu');
-});
-
-
-Route::resource('siswa', 'SiswaController');
-Route::resource('wali', 'WaliController');
-
 Route::post('/regis', 'RegistrasiController@siswa');
-
 Route::prefix('/tu')->group(function(){
     Route::get('/validate-siswa-baru', 'RegistrasiController@view');
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
