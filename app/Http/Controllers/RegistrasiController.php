@@ -5,27 +5,38 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\siswa;
 use App\wali;
+use App\agama;
+use App\jurusan;
 use App\berkas; 
+use App\Mail\verify_siswa_baru;
 use Illuminate\Support\Facades\Hash;
+
 class RegistrasiController extends Controller
 {
+
+    public function registrasi () {
+        $jurusans = jurusan::all();
+        $agamas = agama::all();
+        return view('registrasi',['agamas'=>$agamas,'jurusans'=>$jurusans]);
+    }
     
     public function siswa(Request $request){
        // return $request;
         //Validasi form
         $this->validate($request, [
-            'nama' => 'required' , 
-            'nis' => 'required',
+            'nama' => 'required|regex:/^[a-zA-Z]/', 
+            'nis' => 'required|numeric',//tambah Snumeric
             'alamat' => 'required' , 
-            'no_tlp' => 'required' , 
-            'jenis_kelamin' => 'required' , 
+            'no_tlp' => 'required|numeric|', //tambah numeric 
+            'jenis_kelamin' => 'required', 
             'tgl_lahir' =>'required' , 
             'email' => 'required|email',
             'agama_id' => 'required|numeric',
+            'jurusan' => 'required|numeric',
             'pict' => 'required', 
-            'nama_wl' => 'required' , 
+            'nama_wl' => 'required|regex:/^[a-zA-Z]/' , 
             'alamat_wl' => 'required' , 
-            'no_tlp_wl' => 'required' , 
+            'no_tlp_wl' => 'required|numeric',//tambah numeric 
             'jenis_kelamin_wl' => 'required' , 
             'tgl_lahir_wl' =>'required' , 
             'email_wl' => 'required|email',
@@ -57,6 +68,7 @@ class RegistrasiController extends Controller
             'tgl_lahir' => $request->tgl_lahir , 
             'email' => $request->email , 
             'agama_id'=>$request->agama_id , 
+            'jurusan_id'=>$request->jurusan,
             'pict' => $fileNameToStorage
         ]);
         // handle data Wali
@@ -126,7 +138,7 @@ class RegistrasiController extends Controller
             'path' => $fileNameToStorage,
             'jenis_berkas' => '3'
         ]);
-        return "sukses";
+        return view('succes_Registrasi_siswa');
    
     }
     public function view(){
@@ -148,6 +160,13 @@ class RegistrasiController extends Controller
         $siswa->password = $hash_password;
         $siswa->verified = '1'; 
         $siswa->save();
+
+        $dataMail = [
+            'username' => $siswa->username,
+            'password' => $password
+        ];
+        
+        \Mail::to($siswa)->send(new verify_siswa_baru($dataMail));
 
         return redirect('/tu/validate-siswa-baru');
     }

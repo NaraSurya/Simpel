@@ -167,6 +167,14 @@
             color:#9E9E9E; 
             background-color:white; 
         }
+
+        .alert-danger {
+            font-size:14px; 
+            padding:1px;
+            background: white;
+            border: none;
+            color: red;
+        }
        
     </style>
 
@@ -197,7 +205,7 @@
             </ul>
         </div>    
     </nav>
-    @include('include.error');
+   
         <hr style="border-top: 1px solid #D2E9FF ; margin:auto">
 
     <div class="container">
@@ -218,8 +226,9 @@
                             <label for="nama_sw">Nama</label>
                             <div class="input-container">
                                 <i class="fa fa-user icon"></i>
-                                <input type="text" class="form-control" name="nama" id="nama_sw" placeholder="Harap diisi">
+                                <input type="text" class="form-control" name="nama" id="nama_sw" placeholder="Harap diisi">  
                             </div>    
+                            <span>{!!$errors->first('nama', '<p class="alert alert-danger">:message</p>') !!}</span>
                         </div>
                         <div class="form-group col">
                             <label for="alamat_sw">Alamat</label>
@@ -227,6 +236,7 @@
                                 <i class="fa fa-home icon"></i>
                                 <input type="text" class="form-control" name="alamat" id="alamat_sw" placeholder="Harap diisi">
                             </div>
+                            <span>{!!$errors->first('alamat', '<p class="alert alert-danger">:message</p>') !!}</span>
                         </div>
                         <div class="form-row ml-2 ">
                             <div class="form-group col mr-4">
@@ -234,14 +244,16 @@
                                 <div class="input-container">
                                     <i class="far fa-id-card icon"></i>
                                     <input type="text" class="form-control" name="nis" id="nis" placeholder="Harap diisi">
-                                </div>      
+                                </div> 
+                                <span>{!!$errors->first('nis', '<p class="alert alert-danger">:message</p>') !!}</span>     
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="telepon_sw">Telepon</label>
                                 <div class="input-container">
                                     <i class="fas fa-mobile icon"></i>
                                     <input type="text" class="form-control" name="no_tlp" id="telepon_sw" placeholder="Harap diisi">
-                                </div>  
+                                </div> 
+                                <span>{!!$errors->first('no_tlp', '<p class="alert alert-danger" >:message</p>') !!}</span> 
                             </div>
                         </div>
                         <div class="form-row ml-2 ">
@@ -249,8 +261,9 @@
                                     <label for="tgl_sw">Tanggal lahir</label>
                                     <div class="input-container">
                                         <i class="far fa-calendar-alt icon"></i>
-                                        <input type="date" class="form-control" name="tgl_lahir" id="tgl_sw" placeholder="Harap diisi">
+                                        <input type="date" class="form-control" name="tgl_lahir" id="tgl_sw" placeholder="Harap diisi"><br>
                                     </div>
+                                    <span>{!!$errors->first('tgl_lahir', '<p class="alert alert-danger" >:message</p>') !!}</span>
                             </div>
                             <div class="form-group col mr-3">
                                     <label >Jenis Kelamin</label>
@@ -259,14 +272,15 @@
                                                 <i class="	fa fa-venus-mars icon" ></i>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="L" required>
+                                            <input type="radio"  id="laki1" name="jenis_kelamin" value="L">
                                             <label  for="laki1">Laki-Laki</label>
                                         </div>
                                         <div class="col-md-4 pt-2" >  
-                                            <input type="radio"  id="perempuan2" name="jenis_kelamin"  value="P" required>
-                                            <label  for="perempuan2">Perempuan</label>
+                                            <input type="radio"  id="perempuan1" name="jenis_kelamin"  value="P" >
+                                            <label  for="perempuan1">Perempuan</label>
                                         </div>
-                                    </div>    
+                                    </div> 
+                                    <span>{!!$errors->first('jenis_kelamin', '<p class="alert alert-danger mt-2" >:message</p>') !!}</span>   
                                 </div> 
                             </div>
                             <div class="form-row ml-2">
@@ -275,33 +289,49 @@
                                         <div class="input-container">
                                             <i class="far fa-envelope icon"></i>
                                             <input type="email" class="form-control" name="email" id="email_sw" placeholder="Harap diisi">
-                                        </div>   
+                                        </div> 
+                                        <span>{!!$errors->first('email', '<p class="alert alert-danger" >:message</p>') !!}</span>  
                                 </div>
                                 <div class="form-group col mr-3">
                                     <label for="agama_sw">Agama</label>
                                     <div class="input-container">
                                         <i class="fas fa-church icon"></i>
                                         <select id="agama_sw" name="agama_id" class="custom-select">
-                                        <option selected disabled>Pilih Agama</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                            <option selected disabled>Pilih Agama</option>
+                                            @foreach ($agamas as $agama)
+                                              <option value="{{$agama->id}}">{{$agama->agama}}</option>    
+                                            @endforeach
                                         </select>
                                     </div>
+                                    <span>{!!$errors->first('agama_id', '<p class="alert alert-danger" >:message</p>') !!}</span>
                                 </div>
                             </div> 
-
-                            <div class="form-group col ">
-                                    <label for="nama_sw">Foto Profile</label>
-                                    <div class="input-container">
-                                        <i class="fas fa-camera icon"></i>
-                                        <div class="custom-file w-50" >
-                                            <input type="file" class="custom-file-input" id="customFile3"  name="pict">
-                                            <label class="custom-file-label" for="customFile3">Choose file</label>
-                                        </div>
-                                    </div>    
+                            <div class="form-row ml-2">
+                                <div class="form-group col mr-4">
+                                    <label for="jurusan">Jurusan</label>
+                                        <div class="input-container">
+                                                <i class="fas fa-book icon"></i>
+                                                <select id="jurusan" name="jurusan" class="custom-select">
+                                                    <option selected disabled>Pilih Jurusan</option>
+                                                    @foreach ($jurusans as $jurusan)
+                                                        <option value="{{$jurusan->id}}">{{$jurusan->jurusan}}</option>    
+                                                    @endforeach
+                                                </select>
+                                        </div> 
+                                        <span>{!!$errors->first('jurusan', '<p class="alert alert-danger" >:message</p>') !!}</span>  
+                                </div>
+                                <div class="form-group col mr-3 ">
+                                    <label for="foto">Foto Profile</label>
+                                        <div class="input-container">
+                                            <i class="fas fa-camera icon"></i>
+                                            <div class="custom-file " >
+                                                <input type="file" class="custom-file-input" id="foto"  name="pict">
+                                                <label class="custom-file-label" for="customFile3">Choose file</label>
+                                            </div>
+                                        </div>    
+                                </div>
                             </div>
-                               
+                         
                          </div>  
                     </div>
                
@@ -319,6 +349,7 @@
                                     <i class="fa fa-user icon"></i>
                                     <input type="text" class="form-control" name="nama_wl" id="nama_wl" placeholder="Harap diisi">
                                 </div> 
+                                <span>{!!$errors->first('nama_wl', '<p class="alert alert-danger">:message</p>') !!}</span>
                         </div>
                         <div class="form-group col">
                             <label for="alamat_wl">Alamat</label>
@@ -326,6 +357,7 @@
                                 <i class="fa fa-home icon"></i>
                                 <input type="text" class="form-control" name="alamat_wl" id="alamat_wl" placeholder="Harap diisi">
                             </div>
+                            <span>{!!$errors->first('alamat_wl', '<p class="alert alert-danger">:message</p>') !!}</span>
                         </div>
                         <div class="form-row ml-2 ">
                             <div class="form-group col mr-4">
@@ -334,13 +366,15 @@
                                         <i class="far fa-calendar-alt icon"></i>
                                         <input type="date" class="form-control" name="tgl_lahir_wl" id="tgl_wl" placeholder="Harap diisi">
                                     </div>
+                                    <span>{!!$errors->first('tgl_lahir_wl', '<p class="alert alert-danger">:message</p>') !!}</span>
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="telepon_wl">Telepon</label>
                                 <div class="input-container">
                                     <i class="fas fa-mobile icon"></i>
                                     <input type="text" class="form-control" name="no_tlp_wl" id="telepon_wl" placeholder="Harap diisi">
-                                </div>  
+                                </div> 
+                                <span>{!!$errors->first('no_tlp_wl', '<p class="alert alert-danger">:message</p>') !!}</span> 
                             </div>
                         </div>
                         <div class="form-group col">
@@ -350,14 +384,15 @@
                                         <i class="	fa fa-venus-mars icon" ></i>
                                 </div>
                                 <div class="col-sm-2 pt-2" >  
-                                    <input type="radio"  name="jenis_kelamin_wl" value="L" id="laki2" required>
+                                    <input type="radio"  name="jenis_kelamin_wl" value="L" id="laki2" >
                                     <label for="laki2">Laki-Laki</label>
                                 </div>
                                 <div class="col-sm-2 pt-2" >  
-                                    <input type="radio"  name="jenis_kelamin_wl" value="P" id="perempuan2"  required>
+                                    <input type="radio"  name="jenis_kelamin_wl" value="P" id="perempuan2" >
                                     <label  for="perempuan2">Perempuan</label>
                                 </div>
-                            </div>    
+                            </div> 
+                            <span>{!!$errors->first('jenis_kelamin_wl', '<p class="alert alert-danger w-50 mt-2">:message</p>') !!}</span>   
                         </div>         
                         <div class="form-row ml-2">
                             <div class="form-group col mr-4">
@@ -365,21 +400,21 @@
                                     <div class="input-container">
                                         <i class="far fa-envelope icon"></i>
                                         <input type="email" class="form-control" name="email_wl"  id="email_wl" placeholder="Harap diisi">
-                                    </div>   
+                                    </div> 
+                                    <span>{!!$errors->first('email_wl', '<p class="alert alert-danger">:message</p>') !!}</span>  
                             </div>
                             <div class="form-group col mr-3">
                                 <label for="agama_wl">Agama</label>
                                     <div class="input-container">
                                         <i class="fas fa-church icon"></i>
-
                                         <select id="agama_wl" name="agama_wl" class="custom-select" required>
-
                                         <option selected disabled>Pilih Agama</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        @foreach ($agamas as $agama)
+                                          <option value="{{$agama->id}}">{{$agama->agama}}</option>    
+                                        @endforeach
                                         </select>
                                     </div>
+                                    <span>{!!$errors->first('agama_wl', '<p class="alert alert-danger" >:message</p>') !!}</span>
                              </div>
                         </div>
                      </div>  
@@ -418,7 +453,6 @@
                                     <label class="custom-file-label" for="customFile3">Choose file</label>
                                 </div>
                         </div>   
-
             </div>
 
             {{-- form berkas pembayaran --}}
