@@ -153,6 +153,9 @@ return [
         'agama_id' => [
             'required' => 'Agama wajib diisi!',
         ],
+        'jurusan' => [
+            'required' => 'Jurusan wajib diisi!',
+        ],
 
         'nama_wl' => [
             'required' => 'Nama Wali Wajib diisi!',

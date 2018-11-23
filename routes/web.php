@@ -22,7 +22,7 @@ Route::get('/test', function () {
 Route::get('/regis','RegistrasiController@registrasi');
 
 
-
+    
 Route::post('/regis', 'RegistrasiController@siswa');
 
 Route::prefix('/tu')->group(function(){
