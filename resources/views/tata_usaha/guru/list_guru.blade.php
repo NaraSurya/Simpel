@@ -1,5 +1,5 @@
 @extends('layout.layout_TU')
-@section('title','list guru')
+@section('title','List Guru')
 
 
 @section('content')

@@ -29,6 +29,7 @@ Route::prefix('/tu')->group(function(){
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
     Route::put('/verify-siswa-baru/{id}','RegistrasiController@verify');
     Route::resource('/siswa', 'SiswaController');
+    Route::resource('/kelas', 'KelasController');
 
     
 });
