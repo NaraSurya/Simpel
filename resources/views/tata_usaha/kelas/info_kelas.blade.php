@@ -30,13 +30,17 @@
                 <div class="row">
                 <div class="col-sm-12 col-md-6 border">
                         <h6 class="mt-3 font-color-grey">Wali Kelas</h6>
-                            <div class="row ">
-                            <a href="/storage/profile_guru/{{$datakelas->guru->pict}}" target="_blank">
-                                <img src="/storage/profile_guru/{{$datakelas->guru->pict}}"   class="rounded-circle " alt="logo_simple"  width="50px" height="50px">
-                            </a>
-                                <h5 class=" mb-3 md-3 col-md-11">{{$datakelas->guru->nama}}</h5>
-                                <td class="align-middle"><a href="/tu/guru/{{$datakelas->guru_id}}" class=""><i class="fas fa-external-link-alt fa-lg"></i></a></td>
-                            </div>
+                            <div class="col ">
+                                <div>
+                                    <a href="/storage/profile_guru/{{$datakelas->guru->pict}}" target="_blank">
+                                        <img src="/storage/profile_guru/{{$datakelas->guru->pict}}"   class="rounded-circle " alt="logo_simple"  width="50px" height="50px">
+                                    </a>
+                                </div>
+                                <div>
+                                    <h5 class=" mb-3 md-3 col-md-11">{{$datakelas->guru->nama}}</h5>
+                                    <td class="align-middle"><a href="/tu/guru/{{$datakelas->guru_id}}" class=""><i class="fas fa-external-link-alt fa-lg"></i></a></td>
+                                </div>
+                           </div>
                         </div>
                         <div class="col-sm-12 col-md-2 border">
                             <h6 class="mt-3 font-color-grey">Jurusan</h6>
@@ -88,21 +92,10 @@
                     <div class="card w-80">
                         <div class="card-body text-center">
                             <div class="mx-5">
-                                <h5 class="card-title display-4 mt-5">125</h5>
-                                <h6 class="card-subtitle mb-5 text-muted">Siswa kelas X </h6>
-                                <a href="#" class="btn btn-primary mb-3">lihat siswa</a>
-                            </div>
-                            <hr>
-                            <div class="mx-5">
-                                <h5 class="card-title display-4 mt-5">115</h5>
-                                <h6 class="card-subtitle mb-5 text-muted">Siswa kelas XI </h6>
-                                <a href="#" class="btn btn-primary mb-3">lihat siswa</a>
-                            </div>
-                            <hr>
-                            <div class="mx-5">
-                                <h5 class="card-title display-4 mt-5">117</h5>
-                                <h6 class="card-subtitle mb-5 text-muted">Siswa kelas XII </h6>
-                                <a href="#" class="btn btn-primary mb-3">lihat siswa</a>
+                                <h5 class="card-title display-4 mt-5">{{$detail_kelas->where('kelas_id', $datakelas->id)->count()}}</h5>
+                                <h6 class="card-subtitle mb-5 text-muted">Jumlah siswa kelas {{$datakelas->nama}} </h6>
+                                <hr>
+                                <h6 class="card-subtitle mb-5 text-muted">Klik icon kanan untuk menampilkan data siswa</h6>
                             </div>
                         </div>
                     </div>
