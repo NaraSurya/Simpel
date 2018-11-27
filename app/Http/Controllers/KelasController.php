@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Guru;
+use App\detail_kelas;
 use App\kelas;
+use App\periode;
+use App\jurusan;
+use App\wali;
+use App\siswa; 
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -14,7 +20,12 @@ class KelasController extends Controller
      */
     public function index()
     {
-        //
+        $detail = detail_kelas::all();
+        $kelases = kelas::all();
+        $periodes = periode::all();
+        $loop = 0;
+        return view('tata_usaha.kelas.list_kelas',['kelas'=>$kelases , 'tahun_periode'=>$periodes , 'detail_kelas' => $detail]);
+        
     }
 
     /**
@@ -44,9 +55,14 @@ class KelasController extends Controller
      * @param  \App\kelas  $kelas
      * @return \Illuminate\Http\Response
      */
-    public function show(kelas $kelas)
+    public function show($id)
     {
-        //
+        $detail = detail_kelas::all();
+        $guru = Guru::all();
+        $siswas = siswa::all();
+        $kelases = kelas::find($id);
+        
+        return view('tata_usaha.kelas.info_kelas',['datakelas'=>$kelases , 'datasiswa' => $siswas, 'detail_kelas' => $detail, ]);
     }
 
     /**

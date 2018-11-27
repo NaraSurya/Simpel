@@ -1,5 +1,5 @@
 @extends('layout.layout_TU')
-@section('title','list guru')
+@section('title','List Guru')
 
 
 @section('content')
@@ -8,7 +8,7 @@
             <div class="col-sm-12 col-md-9">
                 <h4 class="display-6">List Staff Guru</h4>
                 <hr class="my-4">
-                    <a href="/tu/guru/create" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Registrasi Guru</a>
+                    <a href="/tu/guru/create" class="btn btn-primary text-center" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Registrasi Guru</a>
                 <table class="table table-borderless text-center">
                     <thead>
                         <tr>

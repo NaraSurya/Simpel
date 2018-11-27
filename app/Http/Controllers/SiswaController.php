@@ -19,7 +19,7 @@ class SiswaController extends Controller
     public function index()
     {
         $siswas = siswa::all();
-        $periodes = periode::orderBy('id','DESC')->take(7)->get()->reverse();
+        $periodes = periode::all();
         $tahun_periodes = []; 
         $jumlah_siswa_periode = []; 
         $loop = 0;

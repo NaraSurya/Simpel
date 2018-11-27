@@ -4,13 +4,13 @@
     <div class="container">
         <div class="form-row ">
             <div class="form-group col">
-            <a href="/tu/guru" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
+            <a href="/tu/guru" class="btn btn-primary text-center" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">List Guru</a>    
             </div>
             <div class="form-group col  text-center">
                 <h2>Form Edit Data Guru</h2>
             </div>
             <div class="form-group col text-right">
-            <a href="home/dashboard" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Home</a>    
+            <a href="home/dashboard" class="btn btn-primary text-center" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Home</a>    
             </div>
         </div>
             {{-- form guru --}}
@@ -132,7 +132,7 @@
                                
                          </div>  
                          <div class="btn-sub-edit my-5 text-center">
-                    <button  type="submit" class="btn btn-primary" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
+                    <button  type="submit" class="btn btn-primary text-center" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Submit</button>
             </div>
                     </div>
             
