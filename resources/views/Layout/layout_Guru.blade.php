@@ -107,10 +107,19 @@
         .active{
             color: #007bff !important;
         }
-
+        .form-control-no-border:focus {
+            border-color:#ccc;
+            outline: 0;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+        .font-color-grey{
+            color: #8b93a6!important; 
+        }
 
 
     </style>
+    @yield('style')
 </head>
 
   <body>

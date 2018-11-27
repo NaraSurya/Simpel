@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Detail_Nilai;
+use App\detailTipeNilai;
 use Illuminate\Http\Request;
 
-class DetailNilaiController extends Controller
+class DetailTipeNilaiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class DetailNilaiController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Detail_Nilai  $detail_Nilai
+     * @param  \App\detailTipeNilai  $detailTipeNilai
      * @return \Illuminate\Http\Response
      */
-    public function show(Detail_Nilai $detail_Nilai)
+    public function show(detailTipeNilai $detailTipeNilai)
     {
         //
     }
@@ -52,10 +52,10 @@ class DetailNilaiController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Detail_Nilai  $detail_Nilai
+     * @param  \App\detailTipeNilai  $detailTipeNilai
      * @return \Illuminate\Http\Response
      */
-    public function edit(Detail_Nilai $detail_Nilai)
+    public function edit(detailTipeNilai $detailTipeNilai)
     {
         //
     }
@@ -64,10 +64,10 @@ class DetailNilaiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Detail_Nilai  $detail_Nilai
+     * @param  \App\detailTipeNilai  $detailTipeNilai
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Detail_Nilai $detail_Nilai)
+    public function update(Request $request, detailTipeNilai $detailTipeNilai)
     {
         //
     }
@@ -75,15 +75,11 @@ class DetailNilaiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Detail_Nilai  $detail_Nilai
+     * @param  \App\detailTipeNilai  $detailTipeNilai
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Detail_Nilai $detail_Nilai)
+    public function destroy(detailTipeNilai $detailTipeNilai)
     {
         //
-    }
-
-    public function nilai(Request $request , $id , $id_siswa , $id_kelas){
-        
     }
 }

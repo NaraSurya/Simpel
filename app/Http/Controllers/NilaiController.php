@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Nilai;
+use App\Guru;
+use App\kelas;
+use App\siswa;
+use App\tipeNilai;
 use Illuminate\Http\Request;
 
 class NilaiController extends Controller
@@ -81,5 +85,25 @@ class NilaiController extends Controller
     public function destroy(Nilai $nilai)
     {
         //
+    }
+    public function list_kelas($id){
+        $guru = Guru::find($id);
+        return view('guru.nilai.list_kelas' , ['guru'=>$guru]);
+    }
+    public function list_siswa($id , $id_kelas ){
+        $guru = Guru::find($id);
+        $kelas = kelas::find($id_kelas);
+        return view('guru.nilai.list_siswa',['guru'=> $guru , 'kelas'=> $kelas]);
+    }
+    public function siswa($id , $id_kelas , $id_siswa){
+        $guru = Guru::find($id);
+        $kelas = kelas::find($id_kelas);
+        $siswa = siswa::find($id_siswa);
+        $tipes = tipeNilai::all();
+        $select = []; 
+        foreach($tipes as $tipe){
+            $select[$tipe->id] = $tipe->tipe;
+        }
+        return view('guru.nilai.siswa', ['guru'=>$guru , 'kelas'=>$kelas , 'siswa'=>$siswa , 'tipe'=>$select]);
     }
 }

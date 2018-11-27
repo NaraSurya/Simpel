@@ -18,7 +18,9 @@ Route::get('/', function () {
 Route::get('/test', function () {
     return view('test');
 });
-
+Route::get('/test-guru' , function(){
+    return view('test-guru');
+});
 Route::get('/regis','RegistrasiController@registrasi');
 Route::post('/regis', 'RegistrasiController@siswa');
 Route::prefix('/tu')->group(function(){
@@ -30,6 +32,16 @@ Route::prefix('/tu')->group(function(){
     Route::put('/verify-siswa-baru/{id}','RegistrasiController@verify');
     Route::resource('/siswa', 'SiswaController');
     Route::resource('/kelas', 'KelasController');
+});
 
-    
+
+Route::prefix('/guru')->group(function(){
+    Route::resource('/nilai', 'NilaiController');
+    Route::get('/list-kelas/{id}','NilaiController@list_kelas');
+    Route::get('/list-siswa/{id}/{id_kelas}','NilaiController@list_siswa');
+    Route::get('/siswa/{id}/{id_kelas}/{id_siswa}','NilaiController@siswa');
+    Route::post('/kkm/{id}' , 'GuruController@kkm');
+    Route::resource('/tipe-nilai', 'TipeNilaiController');
+    Route::post('/tipe-nilai-update','TipeNilaiController@updateDetailTipe');
+    Route::post('/nilai-siswa/{id}/{id_siswa}/{id_kelas}','DetailNilaiController@nilai');
 });
