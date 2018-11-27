@@ -92,7 +92,7 @@ class GuruController extends Controller
     ];
 
     \Mail::to($guru)->send(new verify_guru_baru($dataEmail));
-   
+    return redirect('/tu/guru');
     }
 
     /**
@@ -186,6 +186,16 @@ class GuruController extends Controller
     {
         $guru->delete();
         return redirect('/tu/guru');
+    }
+
+    public function kkm(Request $request , $id){
+        $validate = $request->validate([
+            'kkm' => 'integer|between:0,100'
+        ]);
+        $guru = guru::find($id); 
+        $guru->kkm = $request->kkm; 
+        $guru->save();
+        return redirect('/guru/list-kelas/'.$id);
     }
 
  
