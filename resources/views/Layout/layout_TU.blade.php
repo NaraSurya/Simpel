@@ -152,14 +152,18 @@
         }
 
     </style>
+   @yield('style_custom')
 </head>
 
   <body>
         <nav class="navbar position-relative flex-md-nowrap  p-2 ">
             <img src="{{asset('img/logo.svg')}}" class="mx-3" alt="logo_simple"  width="35px" height="35px">
             <div class="relative w-25 form-inline justify-content-center search-bar bg-primary">
-                <input class=" search form-control form-control-no-border form-control-light form-control-sm w-75 justify-content-center mx-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn d-flex-inline btn-primary rounded-circle ml-auto"><i class="fas fa-search"></i></button>
+                <form action="@yield('action')" class="form-inline w-100" method="GET">
+                    <input class=" search form-control form-control-no-border form-control-light form-control-sm w-75 justify-content-center mx-2" type="text" placeholder="Search" aria-label="Search" name="search">
+                    <button type="submit" class="btn d-flex-inline btn-primary rounded-circle ml-auto"><i class="fas fa-search"></i></button>
+                </form>
+           
             </div>
             <ul class="navbar-nav d-flex">
 
@@ -199,6 +203,8 @@
                 </nav>
                 <main role="main" class="col-md-11 ml-sm-auto col-lg-11 px-4">
                     @yield('content')
+                    @yield('content1')
+
                 </main>
             </div>
         </div> 

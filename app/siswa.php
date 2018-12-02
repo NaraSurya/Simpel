@@ -43,10 +43,11 @@ class siswa extends Model
        return $this->belongsToMany('App\Tugas', 'komen__tugas', 'siswa_id', 'tugas_id')->withPivot('komen');
    }
    
-   public function pembayaran()
+   public function periode()
    {
-       return $this->belongsToMany('App\pembayaran', 'detail_pembayarans');
+       return $this->belongsToMany('App\periode','detail_pembayarans' , 'siswa_id' , 'periode');
    }
+   
 
    public function pertanyaan()
    {
