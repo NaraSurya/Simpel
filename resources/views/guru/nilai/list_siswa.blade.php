@@ -6,27 +6,40 @@
             <div class="col-12">
                 <h4 class="display-5 font-color-grey">{{$kelas->nama}}</h4>
                 <hr>
-                <p class="font-color-grey">list siswa</p>
+                <p class="color-grey">list siswa</p>
             </div>
         </div>
         <div class="row card-deck">
             @foreach ($kelas->siswa as $siswa)
-                <div class="col-sm-12 d-flex align-items-stretch col-md-3 ">
-                    <div class="text-center mt-3 w-100  d-inline-block">
-                        <div class="card w-100 h-100 bg-white ">
-                            <div class="card-body ">
+                <div class="col-sm-12 col-md-3">
+                    <div class="card w-100 h-100 p-0 border-0 ">
+                        <div class="card-body p-0 purple-gradient">
+                            <div class="row">
+                                <div class="col-3">
                                     <a href="/storage/profile_siswa/{{$siswa->pict}}"  target="_blank">
-                                        <img src="/storage/profile_siswa/{{$siswa->pict}}"  class="rounded-circle" alt="logo_simple"  width="80px" height="80px">
+                                        <img src="/storage/profile_siswa/{{$siswa->pict}}"  class="rounded" alt="logo_simple"  width="80px" height="80px">
                                     </a>
-                                    <h5 class="mt-3 mb-2" style="color : #565e8a">{{$siswa->nama}}</h5>
-                                    <h6 class="font-color-grey mb-5">{{$siswa->nis}}</h6>
-                                    <div class="mx-5 p-2 mb-5 bg-warning text-white">
-                                        <h5>90</h5>
-                                        <h6>Nilai Total</h6>
-                                    </div>
-                                    <a href="/guru/siswa/{{$guru->id}}/{{$kelas->id}}/{{$siswa->id}}" class="btn btn-md mb-3 btn-primary">Beri Nilai</a>
+                                </div>
+                                <div class="col-9 flex-column">
+                                    <h6 class="mx-3 my-4 font-weight-bold ">{{$siswa->nama}}</h6>
+                                </div>
                             </div>
-                        </div>   
+                            <div class="row mx-1">
+                                <div class="col-8">
+                                    <p class="my-3 font-weight-bold ">{{$siswa->nis}}</p>
+                                </div>
+                                <div class="col-4 blue">
+                                    <h5 class="my-3 mx-1">
+                                        {{$siswa->nilai->where('kelas_id',$kelas->id)->first()->nilai_total($guru)}}
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mb-2">
+                                    <a href="/guru/siswa/{{$guru->id}}/{{$kelas->id}}/{{$siswa->id}}" class="btn btn-primary btn-sm mx-3">Beri Nilai</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             @endforeach

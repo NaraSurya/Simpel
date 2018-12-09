@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-12">
                         <h4 class="display-5 text-bold">Mengelola Nilai</h4>
-                        <p class="font-color-grey">list kelas yang anda ajari </p>
+                        <p class="color-grey">list kelas yang anda ajari </p>
                     </div>
                 </div>
                 <hr>
@@ -16,8 +16,11 @@
                         @if (!is_null($guru->tipe_nilai->first()))
                             <div class="row text-center">
                                 @foreach ($guru->tipe_nilai as $tipe_nilai)
-                                    <div class="col-3 my-3">
-                                        <h3>{{$tipe_nilai->pivot->persentase}}%</h3>
+                                    <div class="col-3 my-3 px-3">
+                                        <div class="rounded-circle  align-middle orange mb-3  " style="height : 85px">
+                                                <h3 class="py-4">{{$tipe_nilai->pivot->persentase}}%</h3>
+                                        </div>
+                                       
                                         <div class="progress mx-3" style="height:10px">
                                             <div class="progress-bar bg-warning" role="progressbar" style="width: {{$tipe_nilai->pivot->persentase}}%" aria-valuenow="{{$tipe_nilai->pivot->persentase}}" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>   
@@ -27,13 +30,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 text-center mb-2">
-                                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#EditPersentaseModal">
+                                        <button type="button" class="btn btn-purple btn-sm" data-toggle="modal" data-target="#EditPersentaseModal">
                                             Change Persentase
                                         </button>
                                 </div>
                             </div>
                         @else
-                            <div class="row flex-">
+                            <div class="row">
                                 <div class="col-12 text-center mb-2">
                                         <h5 class="mt-5">Ups anda belum membuat presentase</h5>
                                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#MakePersentaseModal">
@@ -47,10 +50,10 @@
                     <div class="col-sm-12 col-md-3">
                         <div class="h-100 w-100 shadow-sm p-3 bg-white text-center">
                             <h4 class="mb-4">KKM</h4>
-                            <div class="rounded bg-success py-2 text-white mb-3">
+                            <div class="rounded green py-2 text-white mb-5">
                                 <h3>{{ $guru->kkm }}</h3>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#KKMModal">
+                            <button type="button" class="btn btn-purple btn-sm mt-4" data-toggle="modal" data-target="#KKMModal">
                                 Change KKM
                             </button>
                               
@@ -59,9 +62,9 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
-                <div class="bg-white w-100 h-100">
-                    <h1>grafik rata rata nilai kelas</h1>
-                </div>
+                <div class="w-100 h-100 py-3 bg-white">
+                        <canvas id="nilaiChart"></canvas>
+                </div>      
             </div>
         </div>
         <div class="row mt-5 mb-3">
@@ -71,26 +74,36 @@
         </div>
         <div class="row card-deck mb-5">
             @foreach ($guru->jadwal as $kelas)
-                <div class="col-sm-12 col-md-3 text-center">
-                    <div class="card w-100">
-                        <div class="card-header text-center bg-warning text-white " style="height:100px">
-                            <h3>{{$kelas->nama}}</h3>
-                        </div>
-                        <div class="card-body">
-                           <div class="d-inline-flex mb-5 text-left">
-                                <a href="/storage/profile_guru/{{$kelas->guru->pict}}" class="justify-content-start" target="_blank">
-                                    <img src="/storage/profile_guru/{{$kelas->guru->pict}}"  class="rounded-circle" alt="logo_simple"  width="50px" height="50px">
-                                </a>
-                                <div class="d-inline">
-                                    <h6 class="mx-5 align-middle">{{$kelas->guru->nama}}</h6>
+                <a href="/guru/list-siswa/{{$guru->id}}/{{$kelas->id}}"style="text-decoration:none;">
+                    <div class="col-sm-12 col-md-3">
+                        <div class="card w-100 border-0">
+                            <div class="card-body px-3 py-0">
+                                <div class="row p-3 green">
+                                    <div class="col-7">
+                                        <h3>{{$kelas->nama}}</h3>
+                                    </div>
+                                    <div class="col-5 d-flex">
+                                        <h5>{{$kelas->siswa->count()}}</h5>
+                                        <p class="font-color-grey mx-1">Siswa</p>
+                                    </div>
                                 </div>
-                           </div>
-                            <h5 class="text-primary">{{$kelas->siswa->count()}}</h5>
-                            <p class="font-color-grey">Jumlah Siswa</p>
-                            <a href="/guru/list-siswa/{{$guru->id}}/{{$kelas->id}}" class="btn btn-primary btn-md">Show</a>
+                                <div class="row mt-3 mb-3">
+                                    <div class="col-12">
+                                        <div class="d-inline-flex text-left">
+                                            <a href="/storage/profile_guru/{{$kelas->guru->pict}}" class="justify-content-start" target="_blank">
+                                                <img src="/storage/profile_guru/{{$kelas->guru->pict}}"  class="rounded-circle" alt="logo_simple"  width="50px" height="50px">
+                                            </a>
+                                            <div class=" ml-3 text-right align-middle">
+                                                <h6 class="">{{$kelas->guru->nama}}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+               
             @endforeach
            
         </div>
@@ -186,4 +199,28 @@
         </div>
         {!! Form::close() !!}
     </div>
+@endsection
+
+@section('script')
+    <script>
+        var ctx = document.getElementById('nilaiChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                    label: "My First dataset",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+    </script>
 @endsection

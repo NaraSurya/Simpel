@@ -1,6 +1,23 @@
 @extends('layout.layout_TU')
 @section('title','validasi siswa baru')
 
+@section('style')
+    <style>
+        .font-color-grey{
+            color: #8b93a6!important; 
+        }
+        .number {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            height: 25px;
+            width: 25px;
+            background-color: white;
+            border: 1.5px solid black;
+            border-radius: 50%;
+            display: inline-block;
+        }
+    </style>    
+@endsection
 
 @section('content')
     <div class="container-fluid">

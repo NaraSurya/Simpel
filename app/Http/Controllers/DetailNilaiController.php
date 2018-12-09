@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Detail_Nilai;
+use App\Nilai;
 use Illuminate\Http\Request;
 
 class DetailNilaiController extends Controller
@@ -84,6 +85,16 @@ class DetailNilaiController extends Controller
     }
 
     public function nilai(Request $request , $id , $id_siswa , $id_kelas){
-        
+        $nilai = Nilai::firstOrCreate([
+            'siswa_id' => $id_siswa , 
+            'kelas_id' => $id_kelas
+        ]);
+
+        $nilai->guru()->attach($id , [ 
+            'nilai' => $request->nilai , 
+            'tipe_nilai_id' => $request->tipe
+        ]);
+
+        return redirect()->back();
     }
 }

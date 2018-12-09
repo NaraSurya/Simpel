@@ -99,11 +99,12 @@ class NilaiController extends Controller
         $guru = Guru::find($id);
         $kelas = kelas::find($id_kelas);
         $siswa = siswa::find($id_siswa);
+        $nilai = nilai::where('siswa_id' , $id_siswa)->where('kelas_id' , $id_kelas)->first(); 
         $tipes = tipeNilai::all();
         $select = []; 
         foreach($tipes as $tipe){
             $select[$tipe->id] = $tipe->tipe;
         }
-        return view('guru.nilai.siswa', ['guru'=>$guru , 'kelas'=>$kelas , 'siswa'=>$siswa , 'tipe'=>$select]);
+        return view('guru.nilai.siswa', ['guru'=>$guru , 'kelas'=>$kelas , 'nilai'=>$nilai , 'siswa'=>$siswa, 'tipe'=>$select]);
     }
 }

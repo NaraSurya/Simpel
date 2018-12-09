@@ -1,0 +1,100 @@
+/*
+Component color 
+*/
+
+.purple-white{
+    background-color: #D8E6FF;
+    color: #7DA9FF
+}
+
+.red {
+    background-color: #FEDEDF; 
+    color : #FF5F6A;
+}
+
+.orange{
+    background-color: #FFEED4; 
+    color :#E5AC52
+}
+
+.purple{
+    color: white !important;
+    background-color: #4c9bfb!important;
+}
+
+.blue{
+    background-color: #007bff !important;
+    color: white;
+}
+.green {
+    background-color: #59C355;
+    color: white;
+}
+.green-white {
+    background-color: #29CCBF;
+    color: white;
+}
+
+.green-gradient{
+    background-image: linear-gradient(to right bottom , #46EEAA , #2CBFC7);
+    color : white;
+}
+
+.purple-gradient{
+    background-image: linear-gradient(to right , #AB59F1 , #749CFC );
+    color: white;
+}
+
+.orange-gradient{
+    background-image: linear-gradient(to right bottom , #FFDF40 , #FF8359);
+    color: white;
+}
+/*
+text color
+*/
+
+.color-grey{
+    color: rgb(190, 190, 190);
+}
+
+.color-grey-white{
+    color: #cfd3dc!important;
+}
+
+.color-blue{
+    color: #007bff !important;
+}
+
+/*
+button color
+*/
+
+.btn-green-gradient{
+    background-image: linear-gradient(to right bottom , #46EEAA , #2CBFC7);
+    color : white;
+}
+
+.btn-green-gradient:hover{
+    background-image: linear-gradient(to right bottom , #46DEAA , #2CAFC7);
+    color : white;
+}
+
+.btn-purple{
+    color: white !important;
+    background-color: #4c9bfb!important;
+}
+
+.btn-purple:hover{
+    color: white !important;
+    background-color: #4c7bfb!important;
+}
+
+.btn-green{
+    background-color: #59C355;
+    color: white;
+}
+
+.btn-green:hover{
+    background-color: #59A355;
+    color: white;
+}
