@@ -8,9 +8,12 @@
 </head>
 <body>
 
-<h1>Username</h1>
-<h1>{{$dataEmail['username']}}</h1>    
-<h1>Password</h1>  
-<h1>{{$dataEmail['password']}}</h1>  
+<h4>Username</h4>
+<h4><b>{{$dataEmail['username']}}</b></h4>    
+<h4>Password</h1>  
+<h4> <b>{{$dataEmail['password']}}</b></h4>
+
+<p>Gunakan username dan password diatas untuk login ke dalam dashboard</p>
+<p>Klik disini untuk login ke dashboard</p><a href="">Login</a>
 </body>
 </html>

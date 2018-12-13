@@ -191,7 +191,7 @@
                 <img src="{{asset('img/logo.svg')}}" alt="logo_simple"  width="50px" height="50px">
             </a>
             <ul class="nav justify-content-center">
-                    <li class="nav-item"  style="color:#4C9BFB; font-size:25px; margin-left:270px">
+                    <li class="nav-item"  style="color:#4C9BFB; font-size:25px; margin-left:170px">
                     Simpel 
                     </li>
             </ul>

@@ -31,6 +31,9 @@ Route::prefix('/tu')->group(function(){
     Route::get('/biodata-siswa-baru/{id}','RegistrasiController@show');
     Route::put('/verify-siswa-baru/{id}','RegistrasiController@verify');
     Route::resource('/siswa', 'SiswaController');
+    Route::get('/pembayaran','DetailPembayaranController@index');
+    Route::get('/pembayaran/cari', 'DetailPembayaranController@cari');
+    Route::get('/pembayaran/store', 'DetailPembayaranController@store');
     Route::resource('/kelas', 'KelasController');
 });
 
@@ -45,3 +48,4 @@ Route::prefix('/guru')->group(function(){
     Route::post('/tipe-nilai-update','TipeNilaiController@updateDetailTipe');
     Route::post('/nilai-siswa/{id}/{id_siswa}/{id_kelas}','DetailNilaiController@nilai');
 });
+

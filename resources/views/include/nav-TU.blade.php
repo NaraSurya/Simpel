@@ -9,7 +9,9 @@
     </a>
 </li>
 <li class="nav-item">
-    <a class="nav-link menu  mb-2 color-grey-white" href="#">
+
+    <a class="nav-link icon  mb-2 menu" href="/tu/pembayaran">
+
         <i class="far fa-credit-card"></i>
     </a>
 </li> 
