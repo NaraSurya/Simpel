@@ -1,0 +1,89 @@
+body{
+    background-color: #f5f6fa;
+    font-family: 'Varela Round', sans-serif;
+}
+nav{
+    background-color: white;
+    z-index: 999;
+    
+}
+
+.search{
+    border-style: none;
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+    
+    
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+    opacity: 1; /* Firefox */
+}
+.sidebar{
+    background-color: white !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 60px 0 0; /* Height of navbar */
+    width: 5% !important;
+    
+}
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+    .sidebar-sticky {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+}
+
+
+.menu:hover{
+    background-color: #198cff;
+    border-right-color: #333;
+    color: white !important;
+}
+[role="main"] {
+    padding-top: 48px; /* Space for fixed navbar */
+}
+.search-bar{
+    -moz-border-radius:28px;
+    -webkit-border-radius:28px;
+    border-radius:28px;
+}
+.menu{
+    font-size: 1.25rem;
+}
+.icon-form {
+    padding: 10px;
+    background:#D5EAFF;
+    border: 1px solid #FFF;
+    color: #80B9FD;
+    min-width: 50px;
+    text-align: center;
+    
+}
+.input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.active{
+    color: #007bff !important; 
+}
+
+.form-control-no-border:focus {
+    border-color:#ccc;
+    outline: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

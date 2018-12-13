@@ -34,7 +34,7 @@ class RegistrasiController extends Controller
             'agama_id' => 'required|numeric',
             'jurusan' => 'required|numeric',
             'pict' => 'required', 
-            'nama_wl' => 'required|alpha' , 
+            'nama_wl' => 'required|regex:/^[a-zA-Z]/' , 
             'alamat_wl' => 'required' , 
             'no_tlp_wl' => 'required|numeric',//tambah numeric 
             'jenis_kelamin_wl' => 'required' , 
@@ -68,6 +68,7 @@ class RegistrasiController extends Controller
             'tgl_lahir' => $request->tgl_lahir , 
             'email' => $request->email , 
             'agama_id'=>$request->agama_id , 
+            'jurusan_id'=>$request->jurusan,
             'pict' => $fileNameToStorage
         ]);
         // handle data Wali

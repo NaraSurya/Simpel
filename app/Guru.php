@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guru extends Model
 {
-    protected $fillable = ['nama' , 'nip' , 'alamat' , 'no_tlp' , 'jenis_kelamin' , 'tgl_lahir' , 'mapel_id', 'email' , 'agama_id' , 'pict' ];
+    protected $fillable = ['nama' , 'nip' , 'alamat' , 'no_tlp' , 'jenis_kelamin' , 'tgl_lahir' , 'mapel_id', 'email' , 'agama_id' , 'pict' , 'username' , 'password'];
     
     //aku gak buat tabel ini
     public function agama()
@@ -37,7 +37,7 @@ class Guru extends Model
 
     public function jadwal()
     {
-        return $this->hasMany('App\jadwal');
+        return $this->belongsToMany('App\kelas' , 'jadwals' , 'guru_id' , 'kelas_id')->withPivot('jam_awal' , 'jam_akhir' , 'hari');
     }
 
     public function kelas()
@@ -63,6 +63,10 @@ class Guru extends Model
     public function nilai()
     {
         return $this->belongsToMany('App\Nilai','detail__nilais')->withPivot('nilai');
+    }
+    public function tipe_nilai()
+    {
+        return $this->belongsToMany('App\tipeNilai', 'detail_tipe_nilais', 'guru_id', 'tipe_id')->withPivot('persentase');
     }
 
 
