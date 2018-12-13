@@ -35,7 +35,7 @@
 
                             </div>
                             <div class="d-inline-flex align-items-center ">
-                                Gus Agung
+                                Admin
                             </div>
                         </div>
                     </button>

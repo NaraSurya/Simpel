@@ -63,19 +63,19 @@
                 <div class="card w-80">
                     <div class="card-body text-center">
                         <div class="mx-5">
-                            <h5 class="card-title display-4 mt-5">125</h5>
+                            <h5 class="card-title display-4 mt-5">{{$jumlah_siswa['X']}}</h5>
                             <h6 class="card-subtitle mb-5 text-muted">Siswa kelas X </h6>
                             <a href="#" class="btn btn-primary mb-3">lihat siswa</a>
                         </div>
                         <hr>
                         <div class="mx-5">
-                            <h5 class="card-title display-4 mt-5">115</h5>
+                            <h5 class="card-title display-4 mt-5">{{$jumlah_siswa['XI']}}</h5>
                             <h6 class="card-subtitle mb-5 text-muted">Siswa kelas XI </h6>
                             <a href="#" class="btn btn-primary mb-3">lihat siswa</a>
                         </div>
                         <hr>
                         <div class="mx-5">
-                            <h5 class="card-title display-4 mt-5">117</h5>
+                            <h5 class="card-title display-4 mt-5">{{$jumlah_siswa['XII']}}</h5>
                             <h6 class="card-subtitle mb-5 text-muted">Siswa kelas XII </h6>
                             <a href="#" class="btn btn-primary mb-3">lihat siswa</a>
                         </div>

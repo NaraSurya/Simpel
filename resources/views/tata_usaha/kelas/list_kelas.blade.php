@@ -21,7 +21,7 @@
                         <h5 class="card-title display-4">{{$kelas->count()}}</h5>
                         <h6 class="card-subtitle mb-5 text-muted">Total Kelas </h6>
                         <p class="font-color-grey">AI NOT SPIK INGGRIS</p>
-                        <a href="" class="btn btn-primary text-center col-sm-12" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Generate Kelas</a>
+                        <a href="/tu/kelas/create" class="btn btn-primary text-center col-sm-12" style="background-color:#4C9BFB; border:none; width: 130px !important; border-radius: 20px;">Generate Kelas</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($kelas->where($kelas->periode, 1) as $datakelas)
+                        @foreach ($kelas as $datakelas)
                             <tr class="bg-white my-5 align-middle">
                                 <td class="align-middle text-bold">{{ $datakelas->nama }}</td>
                                 <td class="align-middle">{{$detail_kelas->where('kelas_id', $datakelas->id)->count()}}</td>

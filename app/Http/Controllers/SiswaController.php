@@ -7,6 +7,7 @@ use App\wali;
 use App\agama;
 use App\periode;
 use App\jurusan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -18,7 +19,12 @@ class SiswaController extends Controller
      */
     public function index()
     {
+        
+
         $siswas = siswa::all();
+        $jumlahSiswa['X'] = siswa::whereYear('created_at' , Carbon::now()->year)->count();
+        $jumlahSiswa['XI'] = siswa::whereYear('created_at' , Carbon::now()->subYear()->year)->count();
+        $jumlahSiswa['XII'] = siswa::whereYear('created_at', carbon::now()->subYear(2)->year)->count();
         $periodes = periode::all();
         $tahun_periodes = []; 
         $jumlah_siswa_periode = []; 
@@ -28,7 +34,7 @@ class SiswaController extends Controller
             $jumlah_siswa_periode[$loop] = siswa::whereYear('created_at' , $periode->getYear())->count();
             $loop++;
         }
-        return view('tata_usaha.siswa.list_siswa',['siswas'=>$siswas , 'tahun_periodes'=>$tahun_periodes , 'jumlah_siswa_periode' => $jumlah_siswa_periode]);
+        return view('tata_usaha.siswa.list_siswa',['siswas'=>$siswas , 'tahun_periodes'=>$tahun_periodes , 'jumlah_siswa_periode' => $jumlah_siswa_periode , 'jumlah_siswa' => $jumlahSiswa]);
     }
 
     /**

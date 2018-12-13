@@ -10,6 +10,7 @@ use App\jurusan;
 use App\wali;
 use App\siswa; 
 use Illuminate\Http\Request;
+use Carbon\carbon;
 
 class KelasController extends Controller
 {
@@ -34,7 +35,29 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        // mengklasifikasi siswa 
+
+        $siswaX = siswa::whereYear('created_at' , Carbon::now()->year)->get();
+        $siswaXI = siswa::whereYear('created_at' , Carbon::now()->subYear()->year)->get();
+        $siswaXII = siswa::whereYear('created_at', carbon::now()->subYear(2)->year)->get();
+
+        // klasifikasi siswa X 
+        $siswaXIPA = $siswaX->where('jurusan_id',1);
+        return $siswaXIPA;
+        $jumlahX = $siswaX->count(); 
+        $jumlahSiswaPerKelas = ceil(10*$jumlahX/100);
+        $loop = 1;
+        // while($siswaX as $siswa){
+        //     if($loop == $jumlahSiswaPerKelas){
+        //         $loop =1;
+        //     }
+        //     if($loop = 1){
+        //         $newKelas = kelas::create([
+
+        //         ]);
+        //     }
+
+        // }
     }
 
     /**
