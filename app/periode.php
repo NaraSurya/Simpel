@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class periode extends Model
 {
+
+    public function siswa(){
+        return $this->belongsToMany('App\siswa','detail_pembayarans' , 'siswa_id' , 'periode');
+
     
     public function getYear(){
         $periode = $this->tahun_ajaran; 
@@ -19,6 +23,7 @@ class periode extends Model
      */
     public function pembayaran(){
         return $this->hasMany('App\pembayaran');
+
     }
 
 }
