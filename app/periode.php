@@ -9,7 +9,7 @@ class periode extends Model
 
     public function siswa(){
         return $this->belongsToMany('App\siswa','detail_pembayarans' , 'siswa_id' , 'periode');
-
+    }
     
     public function getYear(){
         $periode = $this->tahun_ajaran; 

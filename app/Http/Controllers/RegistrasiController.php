@@ -24,7 +24,7 @@ class RegistrasiController extends Controller
        // return $request;
         //Validasi form
         $this->validate($request, [
-            'nama' => 'required|regex:/^[a-zA-Z]/', 
+            'nama' => 'required|regex:/^[1-9]/', 
             'nis' => 'required|numeric',//tambah Snumeric
             'alamat' => 'required' , 
             'no_tlp' => 'required|numeric|', //tambah numeric 
